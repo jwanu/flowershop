@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>teleflora</title>
+    <link rel="stylesheet" href="/styles/normalize.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="foldMenuBtn"></div>
+      <div class="logo"></div>
+      <ul class="menu">
+          <li class="birthday">Birthday</li>
+          <li class="getwell">Get Well</li>
+          <li class="shopby">Shop BY</li>
+          <li class="occasion">Occasion</li>
+      </ul>
+      <div class="cart"></div>
+    </header>
+    <div class="foldMenu"></div>
+    {% block content %} {% endblock %}
+  </body>
+</html>
