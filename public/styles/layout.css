@@ -1,0 +1,17 @@
+.header { display: -webkit-box; display: -ms-flexbox; display: flex; height: 40px; background: #f7407b; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+
+.header .logo { height: 60%; }
+
+.header .logo svg { height: 100%; fill: white; }
+
+.header .menu { display: none; visibility: hidden; }
+
+.mobileNav { position: absolute; bottom: 0; right: 0; left: 0; height: 40px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.4); box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.4); }
+
+@media (min-width: 576px) { .mobileNav { height: 50px; } }
+
+.mobileNav .btn { width: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+
+.mobileNav .btn .icon { width: 25px; height: 25px; background: green; }
+
+.mobileNav .btn .menuName { font-size: .75rem; }

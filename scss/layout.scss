@@ -1,0 +1,47 @@
+@import './mixin';
+
+.header {
+  display: flex;
+  height: 40px;
+  background: #f7407b;
+  justify-content: center;
+  align-items: center;
+  .logo{
+      height: 60%;
+      svg{
+          height: 100%;
+          fill: white;
+      }
+  }
+  .menu {
+    display: none;
+    visibility: hidden;
+  }
+}
+.mobileNav {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 40px;
+  display: flex;
+  box-shadow: 0 1px 1px 1px rgba(0,0,0,.4);
+  @include sm{
+      height: 50px;
+  }
+  .btn {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .icon{
+        width: 25px;
+        height: 25px;
+        background: green;
+    }
+    .menuName{
+        font-size: .75rem;
+    }
+  }
+}
