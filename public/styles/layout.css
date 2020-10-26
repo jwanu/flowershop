@@ -1,17 +1,74 @@
-.header { display: -webkit-box; display: -ms-flexbox; display: flex; height: 40px; background: #f7407b; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+* { font-family: 'Noto Sans KR', sans-serif; font-weight: 300; color: #222; }
 
-.header .logo { height: 60%; }
+button { -webkit-appearance: none; -moz-appearance: none; appearance: none; border: none; background: none; }
 
-.header .logo svg { height: 100%; fill: white; }
+svg { height: 25px; }
 
-.header .menu { display: none; visibility: hidden; }
+.header { height: 40px; background: #f7407b; }
+
+.header .wrapper { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; height: 100%; margin: 0 auto; }
+
+.header .wrapper .logo { height: 25px; }
+
+.header .wrapper .logo svg { height: 100%; fill: white; }
+
+.header .wrapper .menu { display: none; visibility: hidden; }
+
+@media (min-width: 768px) { .header { height: 65px; background: none; -webkit-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1); box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1); }
+  .header .wrapper { -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; padding-left: 15px; padding-right: 15px; }
+  .header .wrapper .logo { height: 30px; }
+  .header .wrapper .logo svg { fill: #f7407b; }
+  .header .wrapper .menu { font-size: 14px; -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; visibility: visible; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; padding-left: 30px; }
+  .header .wrapper .menu .left { display: -webkit-box; display: -ms-flexbox; display: flex; min-width: 350px; }
+  .header .wrapper .menu .left div { padding: 20px 10px; margin-right: 5px; cursor: pointer; }
+  .header .wrapper .menu .right { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
+  .header .wrapper .menu .right div { margin-left: 15px; }
+  .header .wrapper .menu .right .searchArea { -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; }
+  .header .wrapper .menu .right .searchArea .searchInput { width: 90%; border-radius: 15px; padding: 5px; border: 2px solid #ddd; text-indent: 5px; font-size: 14px; -webkit-transition: border 0.2s cubic-bezier(1, 0, 0, 1); transition: border 0.2s cubic-bezier(1, 0, 0, 1); }
+  .header .wrapper .menu .right .searchArea .searchInput:hover { border: 2px solid rgba(247, 64, 123, 0.6); -webkit-transition: border 0.2s cubic-bezier(1, 0, 0, 1); transition: border 0.2s cubic-bezier(1, 0, 0, 1); }
+  .header .wrapper .menu .right .searchArea .searchInput:focus { border: 2px solid #f7407b; -webkit-transition: border 0.2s cubic-bezier(1, 0, 0, 1); transition: border 0.2s cubic-bezier(1, 0, 0, 1); }
+  .header .wrapper .menu .right .searchArea .search { position: absolute; right: 0; top: -25%; }
+  .header .wrapper .menu .right .btn { cursor: pointer; }
+  .header .wrapper .menu .right .btn svg { fill: #222; }
+  .header .wrapper .menu .right .btn svg:hover { fill: #f7407b; -webkit-transition: fill 0.2s cubic-bezier(1, 0, 0, 1); transition: fill 0.2s cubic-bezier(1, 0, 0, 1); } }
+
+@media (min-width: 992px) { .header .wrapper { width: 960px; padding: 0; }
+  .header .wrapper .menu { padding-left: 40px; }
+  .header .wrapper .menu .left { min-width: 360px; }
+  .header .wrapper .menu .left div { margin-right: 15px; }
+  .header .wrapper .menu .right div { margin-left: 30px; } }
+
+@media (min-width: 1200px) { .header .wrapper { width: 1180px; } }
 
 .mobileNav { position: absolute; bottom: 0; right: 0; left: 0; height: 40px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.4); box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.4); }
 
 @media (min-width: 576px) { .mobileNav { height: 50px; } }
 
-.mobileNav .btn { width: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+@media (min-width: 768px) { .mobileNav { display: none; visibility: hidden; } }
 
-.mobileNav .btn .icon { width: 25px; height: 25px; background: green; }
+.mobileNav button { width: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; cursor: pointer; }
 
-.mobileNav .btn .menuName { font-size: .75rem; }
+.mobileNav button svg { fill: #666; }
+
+.mobileNav button .menuName { font-size: 0.75rem; }
+
+.content { border: 1px solid red; margin: 0 auto; height: 600px; }
+
+@media (min-width: 992px) { .content { width: 960px; } }
+
+@media (min-width: 1200px) { .content { width: 1180px; } }
+
+.content .occasion { display: -ms-grid; display: grid; -ms-grid-columns: (1fr)[2]; grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 10px; }
+
+@media (min-width: 768px) { .content .occasion { display: -ms-grid; display: grid; -ms-grid-columns: (1fr)[3]; grid-template-columns: repeat(3, 1fr); gap: 10px; } }
+
+@media (min-width: 992px) { .content .occasion { display: -ms-grid; display: grid; -ms-grid-columns: (1fr)[6]; grid-template-columns: repeat(6, 1fr); gap: 10px; } }
+
+.content .occasion .list { height: 50px; line-height: 50px; text-indent: 10px; background: #dddddd; border-radius: 7px; }
+
+.content .shopby { padding: 10px; }
+
+.content .shopby .tabs { display: -ms-grid; display: grid; -ms-grid-columns: (1fr)[3]; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+
+.content .shopby .tabs .tab { height: 50px; line-height: 50px; text-indent: 10px; background: #dddddd; border-radius: 2px; }

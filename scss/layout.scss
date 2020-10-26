@@ -1,21 +1,131 @@
+@import './variables';
 @import './mixin';
+@import './global';
 
 .header {
-  display: flex;
   height: 40px;
-  background: #f7407b;
-  justify-content: center;
-  align-items: center;
-  .logo{
-      height: 60%;
-      svg{
-          height: 100%;
-          fill: white;
+  background: $color1;
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0 auto;
+    .logo {
+      height: 25px;
+      svg {
+        height: 100%;
+        fill: white;
       }
+    }
+    .menu {
+      display: none;
+      visibility: hidden;
+    }
   }
-  .menu {
-    display: none;
-    visibility: hidden;
+  @include md {
+    height: 65px;
+    background: none;
+    box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
+    .wrapper {
+      justify-content: space-between;
+      padding-left: 15px;
+      padding-right: 15px;
+      .logo {
+        height: 30px;
+        svg {
+          fill: $color1;
+        }
+      }
+      .menu {
+        font-size: 14px;
+        flex-grow: 1;
+        visibility: visible;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 30px;
+        .left {
+          display: flex;
+          min-width: 350px;
+          div {
+            padding: 20px 10px;
+            margin-right: 5px;
+            cursor: pointer;
+          }
+        }
+        .right {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          div {
+            margin-left: 15px;
+          }
+          .searchArea {
+            flex-grow: 1;
+            display: flex;
+            justify-content: flex-end;
+            .searchInput {
+              width: 90%;
+              border-radius: 15px;
+              padding: 5px;
+              border: 2px solid #ddd;
+              text-indent: 5px;
+              font-size: 14px;
+              transition: border 0.2s $f-expo;
+              &:hover {
+                border: 2px solid transparentize($color1, 0.4);
+                transition: border 0.2s $f-expo;
+              }
+              &:focus {
+                border: 2px solid $color1;
+                transition: border 0.2s $f-expo;
+              }
+            }
+            .search {
+              position: absolute;
+              right: 0;
+              top: -25%;
+            }
+          }
+          .btn {
+            cursor: pointer;
+            svg {
+              fill: #222;
+              &:hover {
+                fill: $color1;
+                transition: fill 0.2s $f-expo;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @include lg {
+    .wrapper {
+      width: $lg-content;
+      padding: 0;
+      .menu {
+        padding-left: 40px;
+        .left {
+          min-width: 360px;
+          div {
+            margin-right: 15px;
+          }
+        }
+        .right {
+          div {
+            margin-left: 30px;
+          }
+        }
+      }
+    }
+  }
+  @include xl {
+    .wrapper {
+      width: $xl-content;
+    }
   }
 }
 .mobileNav {
@@ -25,23 +135,39 @@
   left: 0;
   height: 40px;
   display: flex;
-  box-shadow: 0 1px 1px 1px rgba(0,0,0,.4);
-  @include sm{
-      height: 50px;
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.4);
+  @include sm {
+    height: 50px;
   }
-  .btn {
+  @include md {
+    display: none;
+    visibility: hidden;
+  }
+  button {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    .icon{
-        width: 25px;
-        height: 25px;
-        background: green;
+    cursor: pointer;
+    svg {
+      fill: #666;
     }
-    .menuName{
-        font-size: .75rem;
+    .menuName {
+      font-size: 0.75rem;
     }
   }
+}
+
+.content {
+  border: 1px solid red;
+  margin: 0 auto;
+  height: 600px;
+  @include lg {
+    width: $lg-content;
+  }
+  @include xl {
+    width: $xl-content;
+  }
+  @import './search';
 }

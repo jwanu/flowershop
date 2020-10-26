@@ -1,0 +1,31 @@
+.occasion {
+  @include grid(2);
+  @include md {
+    @include grid(3);
+  }
+  @include lg {
+    @include grid(6);
+  }
+  padding: 10px;
+  .list {
+    height: 50px;
+    line-height: 50px;
+    text-indent: 10px;
+    background: #dddddd;
+    border-radius: 7px;
+  }
+}
+
+.shopby {
+  padding: 10px;
+  .tabs {
+    @include grid(3);
+    .tab {
+      height: 50px;
+      line-height: 50px;
+      text-indent: 10px;
+      background: #dddddd;
+      border-radius: 2px;
+    }
+  }
+}
