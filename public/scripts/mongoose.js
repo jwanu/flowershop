@@ -1,9 +1,9 @@
-document.querySelectorAll("#user-list tr").forEach((el) => {
-  el.addEventListener("click", function () {
-    const id = el.querySelector("td").textContent;
-    getComment(id);
-  });
-});
+// document.querySelectorAll("#user-list tr").forEach((el) => {
+//   el.addEventListener("click", function () {
+//     const id = el.querySelector("td").textContent;
+//     getComment(id);
+//   });
+// });
 
 async function getUser() {
   try {
@@ -92,46 +92,46 @@ async function getComment(id) {
   } catch (err) {
     console.error(err);
   }
-}
-//사용자등록버튼. 폼이 submit 되면
-document.getElementById("user-form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const name = e.target.username.value;
-  const age = e.target.age.value;
-  const married = e.target.married.checked;
-  if (!name) {
-    return alert("이름을 입력하세요");
-  }
-  if (!age) {
-    return alert("나이를 입력하세요");
-  }
-  try {
-    await axios.post("/users", { name, age, married });
-    getUser();
-  } catch (err) {
-    console.error(err);
-  }
-  e.target.username.value = "";
-  e.target.age.value = "";
-  e.target.married.checked = false;
-});
+// }
+// //사용자등록버튼. 폼이 submit 되면
+// document.getElementById("user-form").addEventListener("submit", async (e) => {
+//   e.preventDefault();
+//   const name = e.target.username.value;
+//   const age = e.target.age.value;
+//   const married = e.target.married.checked;
+//   if (!name) {
+//     return alert("이름을 입력하세요");
+//   }
+//   if (!age) {
+//     return alert("나이를 입력하세요");
+//   }
+//   try {
+//     await axios.post("/users", { name, age, married });
+//     getUser();
+//   } catch (err) {
+//     console.error(err);
+//   }
+//   e.target.username.value = "";
+//   e.target.age.value = "";
+//   e.target.married.checked = false;
+// });
 //댓글등록버튼 
-document.getElementById('comment-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const id = e.target.userid.value;
-    const comment = e.target.comment.value;
-    if (!id) {
-      return alert('아이디를 입력하세요');
-    }
-    if (!comment) {
-      return alert('댓글을 입력하세요');
-    }
-    try {
-      await axios.post('/comments', { id, comment });
-      getComment(id);
-    } catch (err) {
-      console.error(err);
-    }
-    e.target.userid.value = '';
-    e.target.comment.value = '';
-  });
+// document.getElementById('comment-form').addEventListener('submit', async (e) => {
+//     e.preventDefault();
+//     const id = e.target.userid.value;
+//     const comment = e.target.comment.value;
+//     if (!id) {
+//       return alert('아이디를 입력하세요');
+//     }
+//     if (!comment) {
+//       return alert('댓글을 입력하세요');
+//     }
+//     try {
+//       await axios.post('/comments', { id, comment });
+//       getComment(id);
+//     } catch (err) {
+//       console.error(err);
+//     }
+//     e.target.userid.value = '';
+//     e.target.comment.value = '';
+//   });

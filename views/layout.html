@@ -4,12 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#f7407a">
     <title>{{ title }}</title>
     <link rel="stylesheet" href="/styles/normalize.css" />
     <link rel="stylesheet" href="/styles/layout.css" />
   </head>
   <body>
     <header class="header">
+    {% block header %}
       <div class="wrapper">
       <div class="logo">
         <svg xmlns="http://www.w3.org/2000/svg" overflow="visible" viewBox="0 0 1121 258">
@@ -18,10 +20,10 @@
       </div>
       <div class="menu">
         <div class="left">
-            <div class="birthday">Birthday</div>
-            <div class="getwell">Get Well</div>
-            <div class="occasion">Occasion</div>
-            <div class="shopby">Shop BY</div>
+            <div>Birthday</div>
+            <div>Get Well</div>
+            <div>Occasion</div>
+            <div>Shop BY</div>
         </div>
         <div class="right">
             <div class="searchArea">
@@ -47,6 +49,7 @@
         </div>
       </div>
     </div>
+    {% endblock %}
     </header>
     {% include "mobileNav.html" %}
     <div class="content">

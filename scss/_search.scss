@@ -1,3 +1,32 @@
+.header{
+  .mobileSearchWrapper{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .mobileSearch{
+      position: relative;
+      width: 95%;
+      .mobileSearchInput{
+        width: 100%;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 15px;
+        &:checked + svg{
+          fill: blue;
+        }
+      }
+      svg{
+        position: absolute;
+        right: 12px;
+        top: 6px;
+        fill: #666;
+        height: 22px;
+      }
+    }
+  }
+}
+
 .occasion {
   @include grid(2);
   @include md {
