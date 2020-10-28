@@ -72,14 +72,14 @@
               border: 2px solid #ddd;
               text-indent: 5px;
               font-size: 14px;
-              transition: border 0.2s $f-expo;
+              @include effect(0.2s,$f-expo);
               &:hover {
                 border: 2px solid transparentize($color1, 0.4);
-                transition: border 0.2s $f-expo;
+                @include effect(0.2s,$f-expo);
               }
               &:focus {
                 border: 2px solid $color1;
-                transition: border 0.2s $f-expo;
+                @include effect(0.2s,$f-expo);
               }
             }
             .search {
@@ -92,9 +92,10 @@
             cursor: pointer;
             svg {
               fill: #222;
+              @include effect(0.1s,$f-expo);
               &:hover {
                 fill: $color1;
-                transition: fill 0.2s $f-expo;
+                @include effect(0.1s,$f-expo);
               }
             }
           }

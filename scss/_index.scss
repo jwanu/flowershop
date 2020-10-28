@@ -11,87 +11,92 @@
   }
 }
 .notice {
-  @include grid(1,0);
+  @include grid(1, 0);
   article {
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 14px;
-    .icon {
-      padding: 5px;
-      border-radius: 5px;
-      margin-right: 15px;
-      svg {
-        height: 18px;
-        fill: #fff;
+    a {
+      padding: 8px;
+      font-size: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      @include effect;
+      .icon {
+        padding: 4px;
+        border-radius: 4px;
+        margin-right: 16px;
+        svg {
+          height: 18px;
+          fill: #fff;
+        }
       }
-    }
-    .text {
-      &::after {
-        content: '·';
-        font-weight: bold;
-        padding: 7px;
+      .text {
+        &::after {
+          content: '·';
+          font-weight: bold;
+          padding: 8px;
+        }
       }
-    }
-    &:hover{
+      &:hover {
         background: #eee;
+        @include effect;
+      }
     }
   }
-  @include xl{
-      @include grid(2);
-      margin-top: 20px;
-      article{
-          border: 1px solid #ddd;
-          border-radius: 10px;
-      }
+  @include xl {
+    @include grid(2);
+    margin-top: 24px;
+    article {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
   }
 }
 .shopByMain {
   @include grid(1);
-  padding: 20px;
+  padding: 24px;
   h2 {
     font-size: 20px;
     font-weight: 400;
   }
   article {
     width: 100%;
-    height: 250px;
-    border-radius: 10px;
+    height: 240px;
+    border-radius: 8px;
     overflow: hidden;
     position: relative;
-    margin-bottom: 20px;
-    transition: all 0.2s ease;
+    margin-bottom: 24px;
+    @include effect;
     img {
       width: 100%;
       filter: brightness(1.1);
-      transition: all 0.2s ease;
+      @include effect;
     }
     .text {
       position: absolute;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      left: 25px;
-      bottom: 20px;
+      left: 24px;
+      bottom: 16px;
       svg {
-        height: 30px;
+        height: 32px;
         fill: $color1;
       }
       h3 {
         position: relative;
         font-size: 22px;
         font-weight: 600;
-        transition: all 0.4s ease;
+        @include effect(0.3s);
         &::after {
           position: absolute;
           content: '';
           background: $color1;
           width: 0;
           height: 3px;
-          bottom: -7px;
+          bottom: -8px;
           left: 0;
-          transition: all 0.4s $f-expo;
+          @include effect(0.3s, $f-expo);
         }
       }
       span {
@@ -99,7 +104,7 @@
       }
     }
     &:hover {
-      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+      box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.2);
       transition: all 0.2s ease;
       img {
         width: 105%;
@@ -108,15 +113,10 @@
       .text {
         h3 {
           font-size: 24px;
-          transition: all 0.4s ease;
+          @include effect(0.3s);
           &::after {
-            position: absolute;
-            content: '';
             width: 110%;
-            height: 3px;
-            bottom: -6px;
-            left: 0;
-            transition: all 0.4s $f-expo;
+            @include effect(0.3s, $f-expo);
           }
         }
       }
@@ -141,7 +141,7 @@
     }
     article {
       border: 1px solid #ddd;
-      height: 300px;
+      height: 296px;
     }
   }
 }
