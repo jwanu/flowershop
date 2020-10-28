@@ -28,3 +28,13 @@
 @mixin effect($s:0.2s,$f:ease){
   transition: all $s $f;
 }
+
+@mixin limited{
+  margin: 0 auto;
+  @include lg {
+    width: $lg-content;
+  }
+  @include xl {
+    width: $xl-content;
+  }
+}

@@ -1,0 +1,71 @@
+.items {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(2, 200px);
+  gap: 16px;
+  .item {
+    a {
+      text-decoration: none;
+    }
+    .image {
+      height: 200px;
+      background-color: #ddd; //#f7f9fb;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        height: 90%;
+      }
+    }
+    .info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 40px;
+      overflow: hidden;
+      padding: 4px;
+      .name {
+        font-size: 14px;
+        width: 60%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.2em;
+        height: 2.4em;
+      }
+      .price {
+        font-size: 18px;
+        font-weight: 600;
+        &:before {
+          content: '$';
+          vertical-align: top;
+          margin-right: 4px;
+        }
+      }
+    }
+  }
+  @include md {
+    grid-template-columns: repeat(3, 240px);
+    .item {
+      .image {
+        height: 240px;
+      }
+    }
+  }
+  @include lg {
+    grid-template-columns: repeat(4, 224px);
+    .item {
+      .image {
+        height: 224px;
+      }
+    }
+  }
+  @include xl {
+    grid-template-columns: repeat(4, 280px);
+    .item {
+      .image {
+        height: 280px;
+      }
+    }
+  }
+}

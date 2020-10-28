@@ -158,14 +158,5 @@
     }
   }
 }
-.content {
-  margin: 0 auto;
-  @include lg {
-    width: $lg-content;
-  }
-  @include xl {
-    width: $xl-content;
-  }
-}
 @import './index';
 @import './search';

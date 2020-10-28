@@ -1,16 +1,20 @@
 .mainBanner {
-  height: 0;
-  width: 100%;
-  background-image: url('/images/mainbanner_m.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding-top: 87.5%;
-  @include md {
-    background-image: url('/images/mainbanner.jpg');
-    padding-top: 45.8%;
+  @include limited;
+  .backgroundImage {
+    height: 0;
+    width: 100%;
+    background-image: url('/images/mainbanner_m.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 87.5%;
+    @include md {
+      background-image: url('/images/mainbanner.jpg');
+      padding-top: 45.8%;
+    }
   }
 }
 .notice {
+  @include limited;
   @include grid(1, 0);
   article {
     a {
@@ -53,6 +57,7 @@
   }
 }
 .shopByMain {
+  @include limited;
   @include grid(1);
   padding: 24px;
   h2 {
@@ -65,7 +70,7 @@
     border-radius: 8px;
     overflow: hidden;
     position: relative;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
     @include effect;
     img {
       width: 100%;
@@ -145,3 +150,84 @@
     }
   }
 }
+.wideBanner {
+  margin: 32px 0;
+  a {
+    position: relative;
+    text-decoration: none;
+    .backgroundImage {
+      width: 100%;
+      height: 0;
+      padding-top: 50.5%;
+      position: relative;
+      background-image: url('/images/perfect.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      @include effect;
+      h2 {
+        position: absolute;
+        width: 160px;
+        top: 48px;
+        left: 24px;
+        font-size: 40px;
+        font-weight: 600;
+        color: #fff;
+        text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.4);
+      }
+    }
+    &:hover {
+      .backgroundImage {
+        filter: brightness(1.2);
+        @include effect;
+      }
+    }
+  }
+  @include md {
+    a {
+      .backgroundImage {
+        padding-top: 0;
+        height: 400px;
+        position: relative;
+        background-attachment: fixed;
+        h2 {
+          width: auto;
+          position: relative;
+          text-align: center;
+          font-size: 64px;
+          top: 152px;
+          left: 0;
+        }
+      }
+    }
+  }
+}
+.promotion {
+  padding: 0 24px;
+  .banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+    h2 {
+      position: relative;
+      text-align: center;
+      font-size: 32px;
+      font-weight: 400;
+      &::after {
+        position: absolute;
+        content: '';
+        background: $color1;
+        width: 70%;
+        height: 3px;
+        bottom: -16px;
+        left: 15%;
+        @include effect(0.3s, $f-expo);
+      }
+    }
+    div {
+      width: 60%;
+      text-align: center;
+    }
+  }
+}
+@import './modules';
