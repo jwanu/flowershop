@@ -1,0 +1,153 @@
+@import './modules';
+.location {
+  @include limited;
+  padding: 24px 16px;
+  @include md {
+    padding: 40px 32px;
+  }
+
+  .address {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 16px;
+    a {
+      color: #777;
+      text-decoration: none;
+    }
+  }
+  .now {
+    font-size: 48px;
+    font-weight: 600;
+  }
+}
+.filterSummary {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  .wrapper {
+    @include limited;
+    height: 56px;
+    padding: 0 16px;
+    @include lg {
+      padding: 0;
+    }
+    display: flex;
+    justify-content: flex-end;
+    @include lg {
+      justify-content: space-between;
+    }
+    align-items: center;
+
+    .summary {
+      display: none;
+      visibility: hidden;
+      @include lg {
+        display: block;
+        visibility: visible;
+      }
+      font-size: 14px;
+    }
+    .sortby {
+      display: none;
+      visibility: hidden;
+      @include lg {
+        display: block;
+        visibility: visible;
+      }
+      font-size: 14px;
+      select{
+          border: none;
+      }
+    }
+    .mobileFilter {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      svg {
+        height: 16px;
+      }
+      span {
+        margin-left: 8px;
+        font-weight: 400;
+        font-size: 16px;
+      }
+      @include lg {
+        display: none;
+        visibility: hidden;
+      }
+    }
+  }
+}
+.itemview {
+  @include limited;
+  display: flex;
+  margin-top: 24px;
+  .filters {
+    flex-shrink: 0;
+    display: none;
+    visibility: hidden;
+    flex-direction: column;
+    margin-right: 16px;
+    width: 309px;
+    @include lg {
+      width: 283px;
+    }
+    @include lg {
+      display: flex;
+      visibility: visible;
+    }
+    .filter {
+      margin-bottom: 20px;
+      .title {
+        font-weight: 500;
+        height: 48px;
+        border-bottom: 1px solid #ddd;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        li {
+            label{display: block; height: 100%;cursor: pointer;}
+            
+          padding: 8px 0;
+          input[type='checkbox'] {
+            display: none;
+            &:checked + .check {
+              background: $color1;
+              border: 1px solid transparent;
+            }
+          }
+          .check {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border: 1px solid #aaa;
+            vertical-align: middle;
+            margin-right: 16px;
+            border-radius: 4px;
+            text-align: center;
+            @include effect;
+            svg {
+              width: 18px;
+              fill: #fff;
+            }
+          }
+          .name{
+              color: #444;
+              @include effect;
+          }
+          &:hover {
+            .check {
+              box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+            }
+            .name{
+                color: #111;
+            }
+          }
+        }
+      }
+    }
+  }
+  .items {
+    @include itemFlex;
+  }
+}

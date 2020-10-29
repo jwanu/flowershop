@@ -1,3 +1,4 @@
+@import './modules';
 .mainBanner {
   @include limited;
   .backgroundImage {
@@ -229,5 +230,8 @@
       text-align: center;
     }
   }
+  .items{
+    @include itemGrid;
+  }
 }
-@import './modules';
+

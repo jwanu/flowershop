@@ -1,138 +1,179 @@
 {% set title = "Search result - keyword" %} {% extends "layout.html" %} {% block content %}
-<nav class="location">Home / Birthday</nav>
-<h2 class="listHeader">Birthday</h2>
+<nav class="location">
+  <div class="address"><a href="">Home</a> / <a href="">Birthday</a></div>
+  <div class="now">Birthday</div>
+</nav>
 <div class="filterSummary">
-  <div class="mobileFilter">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-      <path
-        d="M472.83 81.65V20a20 20 0 10-40 0v61.65c-22.81 8.22-39.17 30.08-39.17 55.68s16.36 47.47 39.17 55.69V492a20 20 0 1040 0V193.02c22.81-8.22 39.17-30.08 39.17-55.69s-16.36-47.46-39.17-55.68zm-20 74.85c-10.57 0-19.17-8.6-19.17-19.17s8.6-19.17 19.17-19.17 19.17 8.6 19.17 19.17-8.6 19.17-19.17 19.17zM276 318.98V20a20 20 0 10-40 0v298.98c-22.81 8.22-39.17 30.08-39.17 55.69s16.36 47.46 39.17 55.68V492a20 20 0 1040 0v-61.65a59.27 59.27 0 0039.17-55.68A59.27 59.27 0 00276 318.98zm-20 74.86c-10.57 0-19.17-8.6-19.17-19.17s8.6-19.17 19.17-19.17 19.17 8.6 19.17 19.17-8.6 19.17-19.17 19.17zM79.17 81.65V20a20 20 0 10-40 0v61.65C16.36 89.87 0 111.72 0 137.33s16.36 47.47 39.17 55.69V492a20 20 0 1040 0V193.02c22.81-8.22 39.17-30.08 39.17-55.69s-16.36-47.46-39.17-55.68zm-20 74.85C48.6 156.5 40 147.9 40 137.33s8.6-19.17 19.17-19.17 19.17 8.6 19.17 19.17-8.6 19.17-19.17 19.17z"
-      />
-    </svg>
-    <span>filter</span>
+  <div class="wrapper">
+    <div class="summary">1-24 of 192 results</div>
+    <div class="sortby">
+      <select name="" id="">
+        <option value="price_asc">Sort by Price (low to high)</option>
+        <option value="price_desc">Sort by Price (high to low)</option>
+        <option value="name.keyword_asc">Sort by Name</option>
+      </select>
+    </div>
+    <div class="mobileFilter">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path
+          d="M472.83 81.65V20a20 20 0 10-40 0v61.65c-22.81 8.22-39.17 30.08-39.17 55.68s16.36 47.47 39.17 55.69V492a20 20 0 1040 0V193.02c22.81-8.22 39.17-30.08 39.17-55.69s-16.36-47.46-39.17-55.68zm-20 74.85c-10.57 0-19.17-8.6-19.17-19.17s8.6-19.17 19.17-19.17 19.17 8.6 19.17 19.17-8.6 19.17-19.17 19.17zM276 318.98V20a20 20 0 10-40 0v298.98c-22.81 8.22-39.17 30.08-39.17 55.69s16.36 47.46 39.17 55.68V492a20 20 0 1040 0v-61.65a59.27 59.27 0 0039.17-55.68A59.27 59.27 0 00276 318.98zm-20 74.86c-10.57 0-19.17-8.6-19.17-19.17s8.6-19.17 19.17-19.17 19.17 8.6 19.17 19.17-8.6 19.17-19.17 19.17zM79.17 81.65V20a20 20 0 10-40 0v61.65C16.36 89.87 0 111.72 0 137.33s16.36 47.47 39.17 55.69V492a20 20 0 1040 0V193.02c22.81-8.22 39.17-30.08 39.17-55.69s-16.36-47.46-39.17-55.68zm-20 74.85C48.6 156.5 40 147.9 40 137.33s8.6-19.17 19.17-19.17 19.17 8.6 19.17 19.17-8.6 19.17-19.17 19.17z"
+        />
+      </svg>
+      <span>Filter</span>
+    </div>
   </div>
 </div>
 <section class="itemview">
-<div class="filters">
-<form action="" id="itemfilter">
-    <div class="priceRanges"></div>
-    <div class="flowers"></div>
-    <div class="colors"></div>
-</form>
-</div>
-  <div class="items">
-    <div class="item">
-      <a href="">
-        <div class="image">
-          <img
-            src="https://img.teleflora.com/images/o_0/l_flowers:T20T210A,pg_6/w_272,h_340,cs_no_cmyk,c_pad,g_south/f_auto,q_auto:eco,e_sharpen:200/flowers/T20T210A/Teleflora'sRusticSunriseBouquet"
-            alt="Teleflora's Rustic Sunrise Bouquet Bouquet"
-          />
-        </div>
-        <div class="info">
-          <div class="name">Hello Autumn Bouquet</div>
-          <div class="price">47.49</div>
-        </div>
-      </a>
+  <div class="filters">
+    <div class="filter">
+      <div class="title">Price Ranges</div>
+      <ul>
+        <li>
+          <label>
+            <input type="checkbox" value="priceRange" /><span class="check"
+              ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path
+                  d="M505.98 60.7a20 20 0 00-28.28.32L138 408.39 34.3 302.35a20 20 0 00-28.6 27.97l118 120.66a19.97 19.97 0 0028.6 0l354-362a20 20 0 00-.32-28.28z"
+                /></svg></span
+            ><span class="name">Under $40.00</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" value="priceRange" /><span class="check"></span
+            ><span class="name">$40.00 - $60.00</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" value="priceRange" /><span class="check"></span
+            ><span class="name">$60.00 - $80.00</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" value="priceRange" /><span class="check"></span
+            ><span class="name">$80.00 - $100.00</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" value="priceRange" /><span class="check"></span
+            ><span class="name">Over $100.00</span>
+          </label>
+        </li>
+      </ul>
     </div>
-    <div class="item">
-      <a href="">
-        <div class="image">
-          <img
-            src="https://img.teleflora.com/images/o_0/l_flowers:T20T210A,pg_6/w_272,h_340,cs_no_cmyk,c_pad,g_south/f_auto,q_auto:eco,e_sharpen:200/flowers/T20T210A/Teleflora'sRusticSunriseBouquet"
-            alt="Teleflora's Rustic Sunrise Bouquet Bouquet"
-          />
-        </div>
-        <div class="info">
-          <div class="name">Hello Autumn Bouquet</div>
-          <div class="price">47.49</div>
-        </div>
-      </a>
+    <div class="filter">
+      <div class="title">Flowers</div>
+      <ul>
+        <li>
+          <label>
+            <input type="checkbox" value="flower" /><span class="check"
+              ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path
+                  d="M505.98 60.7a20 20 0 00-28.28.32L138 408.39 34.3 302.35a20 20 0 00-28.6 27.97l118 120.66a19.97 19.97 0 0028.6 0l354-362a20 20 0 00-.32-28.28z"
+                /></svg></span
+            ><span class="name">Alstroemeria</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" value="flower" /><span class="check"></span
+            ><span class="name">Birds of Paradise</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" value="flower" /><span class="check"></span><span class="name">Carnations</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" value="flower" /><span class="check"></span><span class="name">Chrysanthemums</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" value="flower" /><span class="check"></span><span class="name">Daisies</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" value="flower" /><span class="check"></span><span class="name">Gerbera Daisies</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" value="flower" /><span class="check"></span><span class="name">Hydrangea</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" value="flower" /><span class="check"></span><span class="name">Lilies</span>
+          </label>
+        </li>
+      </ul>
     </div>
-    <div class="item">
-      <a href="">
-        <div class="image">
-          <img
-            src="https://img.teleflora.com/images/o_0/l_flowers:T20T210A,pg_6/w_272,h_340,cs_no_cmyk,c_pad,g_south/f_auto,q_auto:eco,e_sharpen:200/flowers/T20T210A/Teleflora'sRusticSunriseBouquet"
-            alt="Teleflora's Rustic Sunrise Bouquet Bouquet"
-          />
-        </div>
-        <div class="info">
-          <div class="name">Hello Autumn Bouquet</div>
-          <div class="price">47.49</div>
-        </div>
-      </a>
-    </div>
-    <div class="item">
-      <a href="">
-        <div class="image">
-          <img
-            src="https://img.teleflora.com/images/o_0/l_flowers:T20T210A,pg_6/w_272,h_340,cs_no_cmyk,c_pad,g_south/f_auto,q_auto:eco,e_sharpen:200/flowers/T20T210A/Teleflora'sRusticSunriseBouquet"
-            alt="Teleflora's Rustic Sunrise Bouquet Bouquet"
-          />
-        </div>
-        <div class="info">
-          <div class="name">Hello Autumn Bouquet</div>
-          <div class="price">47.49</div>
-        </div>
-      </a>
-    </div>
-    <div class="item">
-      <a href="">
-        <div class="image">
-          <img
-            src="https://img.teleflora.com/images/o_0/l_flowers:T20T210A,pg_6/w_272,h_340,cs_no_cmyk,c_pad,g_south/f_auto,q_auto:eco,e_sharpen:200/flowers/T20T210A/Teleflora'sRusticSunriseBouquet"
-            alt="Teleflora's Rustic Sunrise Bouquet Bouquet"
-          />
-        </div>
-        <div class="info">
-          <div class="name">Hello Autumn Bouquet</div>
-          <div class="price">47.49</div>
-        </div>
-      </a>
-    </div>
-    <div class="item">
-      <a href="">
-        <div class="image">
-          <img
-            src="https://img.teleflora.com/images/o_0/l_flowers:T20T210A,pg_6/w_272,h_340,cs_no_cmyk,c_pad,g_south/f_auto,q_auto:eco,e_sharpen:200/flowers/T20T210A/Teleflora'sRusticSunriseBouquet"
-            alt="Teleflora's Rustic Sunrise Bouquet Bouquet"
-          />
-        </div>
-        <div class="info">
-          <div class="name">Hello Autumn Bouquet</div>
-          <div class="price">47.49</div>
-        </div>
-      </a>
-    </div>
-    <div class="item">
-      <a href="">
-        <div class="image">
-          <img
-            src="https://img.teleflora.com/images/o_0/l_flowers:T20T210A,pg_6/w_272,h_340,cs_no_cmyk,c_pad,g_south/f_auto,q_auto:eco,e_sharpen:200/flowers/T20T210A/Teleflora'sRusticSunriseBouquet"
-            alt="Teleflora's Rustic Sunrise Bouquet Bouquet"
-          />
-        </div>
-        <div class="info">
-          <div class="name">Hello Autumn Bouquet</div>
-          <div class="price">47.49</div>
-        </div>
-      </a>
-    </div>
-    <div class="item">
-      <a href="">
-        <div class="image">
-          <img
-            src="https://img.teleflora.com/images/o_0/l_flowers:T20T210A,pg_6/w_272,h_340,cs_no_cmyk,c_pad,g_south/f_auto,q_auto:eco,e_sharpen:200/flowers/T20T210A/Teleflora'sRusticSunriseBouquet"
-            alt="Teleflora's Rustic Sunrise Bouquet Bouquet"
-          />
-        </div>
-        <div class="info">
-          <div class="name">Hello Autumn Bouquet</div>
-          <div class="price">47.49</div>
-        </div>
-      </a>
+    <div class="filter">
+      <div class="title">Color</div>
+      <ul>
+        <li>
+          <label>
+            <input type="checkbox" value="flowerColor" /><span class="check"
+              ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path
+                  d="M505.98 60.7a20 20 0 00-28.28.32L138 408.39 34.3 302.35a20 20 0 00-28.6 27.97l118 120.66a19.97 19.97 0 0028.6 0l354-362a20 20 0 00-.32-28.28z"
+                /></svg></span
+            ><span class="name">Blue</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" value="flowerColor" /><span class="check"></span><span class="name">Green</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" value="flowerColor" /><span class="check"></span><span class="name">White</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" value="flowerColor" /><span class="check"></span><span class="name">Purple</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input type="checkbox" value="flowerColor" /><span class="check"></span><span class="name">Red</span>
+          </label>
+        </li>
+      </ul>
     </div>
   </div>
+  <div class="items">
+    {% for item in itemlists %}
+    <div class="item">
+      <a href="">
+        <div class="image">
+          <img
+            src="https://img.teleflora.com/images/o_0/l_flowers:T20T210A,pg_6/w_272,h_340,cs_no_cmyk,c_pad,g_south/f_auto,q_auto:eco,e_sharpen:200/flowers/T20T210A/Teleflora'sRusticSunriseBouquet"
+            alt="{{item.name}}"
+          />
+          <div class="price">{{item.price}}</div>
+          <div class="quickInfo">
+            <div class="name">{{item.name}}</div>
+            <p>{{item.summary}}</p>
+          </div>
+        </div>
+        <div class="info">
+          <div class="name">{{item.name}}</div>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
 </section>
-
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/scripts/itemlist.js"></script>
 {% endblock %}

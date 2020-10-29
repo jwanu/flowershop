@@ -7,6 +7,7 @@ const connect = require('./schemas');
 const indexRouter = require('./routes');
 // const usersRouter = require('./routes/users');
 // const commentsRouter = require('./routes/comments');
+const itemlistsRouter = require('./routes/itemlists');
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use(express.urlencoded({ extended: false}));
 
 
 app.use('/', indexRouter);
+app.use('/itemlists', itemlistsRouter);
 // app.use('/users', usersRouter);
 // app.use('/comments', commentsRouter);
 

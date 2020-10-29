@@ -1,29 +1,31 @@
-.items {
+@import './mixin';
+
+@mixin itemGrid {
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(2, 200px);
+  @include md{ grid-template-columns: repeat(3, 240px) };
+  @include lg{ grid-template-columns: repeat(4, 224px) };
+  @include xl{ grid-template-columns: repeat(4, 280px) };
   gap: 16px;
   .item {
-    a {
-      text-decoration: none;
-    }
     .image {
-      height: 200px;
-      background-color: #ddd; //#f7f9fb;
-      border-radius: 8px;
       display: flex;
       justify-content: center;
       align-items: center;
-      img {
-        height: 90%;
-      }
+      background-color: #f7f9fb;
+      border-radius: 8px;
+      height: 200px;
+      @include md{ height: 240px };
+      @include lg{ height: 224px };
+      @include xl{ height: 280px };
+      img { height: 90% };
     }
     .info {
       display: flex;
       justify-content: space-between;
       align-items: center;
       height: 40px;
-      overflow: hidden;
       padding: 4px;
       .name {
         font-size: 14px;
@@ -44,28 +46,109 @@
       }
     }
   }
-  @include md {
-    grid-template-columns: repeat(3, 240px);
-    .item {
-      .image {
-        height: 240px;
+}
+
+@mixin itemFlex {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  width: 416px;
+  @include sm{ width: 528px };
+  @include md{ width: 703px };
+  @include lg{ width: 634px };
+  @include xl{ width: 881px };
+  .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    @include md{ width: 33.3333% };
+    @include lg{ width: 50% };
+    @include xl{ width: 33.3333% };
+    .image {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f7f9fb;
+      border-radius: 8px;
+      width: 200px;
+      height: 200px;
+      @include sm{ width: 256px; height: 256px };
+      @include md{ width: 229px; height: 229px };
+      @include lg{ width: 309px; height: 309px };
+      @include xl{ width: 283px; height: 283px };
+      img { height: 90% };
+      .price {
+        font-size: 14px;
+        position: absolute;
+        left: 8px;
+        bottom: 8px;
+        z-index: 2;
+        &:before {
+          content: '$';
+          vertical-align: top;
+          margin-right: 4px;
+        }
       }
+      .quickInfo{
+        position:absolute;
+        z-index: 5;
+        top:0;
+        left:0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        transform: translateY(0);
+        @include effect;
+
+        display: flex;
+        flex-direction: column;
+        padding: 24px 16px;
+        font-size: 12px;
+        line-height: 1.3em;
+        @include lg{
+          padding: 40px 32px;
+          font-size: 14px;
+        }
+        .name{
+          color: #444;
+          font-weight: 500;
+        }
+        p{
+          color: #777;
+        }
+
+      }
+      &:hover{
+        img{
+          filter: blur(12px) brightness(130%) contrast(.9);
+        }
+        .quickInfo{
+          transform: translateY(8px);
+          opacity: 1;
+        }
+      }
+      
     }
-  }
-  @include lg {
-    grid-template-columns: repeat(4, 224px);
-    .item {
-      .image {
-        height: 224px;
+   
+    .info {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 40px;
+      padding: 4px;
+      overflow: hidden;
+      .name {
+        width: 90%;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 400;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
-    }
-  }
-  @include xl {
-    grid-template-columns: repeat(4, 280px);
-    .item {
-      .image {
-        height: 280px;
-      }
+      
     }
   }
 }
