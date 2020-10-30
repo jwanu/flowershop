@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: false}));
 
 
 app.use('/', indexRouter);
-app.use('/itemlists', itemlistsRouter);
+// app.use('/itemlists', itemlistsRouter);
 // app.use('/users', usersRouter);
 // app.use('/comments', commentsRouter);
 

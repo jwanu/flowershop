@@ -1,4 +1,3 @@
-console.log('슝');
 async function getItemlist() {
   try {
     const res = await axios.get('/itemlists');
@@ -7,3 +6,5 @@ async function getItemlist() {
     console.error(err);
   }
 }
+
+//document.getElementById

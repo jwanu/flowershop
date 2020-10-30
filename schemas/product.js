@@ -6,7 +6,7 @@ const itemlistSchema = new Schema({
     type: String,
   },
   price: {
-    type: String,
+    type: Number,
   },
   summary: {
     type: String,
@@ -17,6 +17,9 @@ const itemlistSchema = new Schema({
   imgLink: {
     type: String,
   },
+  thumb: {
+    type: String,
+  }
 });
 
 module.exports = mongoose.model('Product', itemlistSchema);

@@ -154,10 +154,10 @@
   <div class="items">
     {% for item in itemlists %}
     <div class="item">
-      <a href="">
+      <a href="/iteminfo/{{item.id}}">
         <div class="image">
           <img
-            src="https://img.teleflora.com/images/o_0/l_flowers:T20T210A,pg_6/w_272,h_340,cs_no_cmyk,c_pad,g_south/f_auto,q_auto:eco,e_sharpen:200/flowers/T20T210A/Teleflora'sRusticSunriseBouquet"
+            src="{{item.thumb}}"
             alt="{{item.name}}"
           />
           <div class="price">{{item.price}}</div>

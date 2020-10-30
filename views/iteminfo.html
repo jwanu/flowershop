@@ -1,0 +1,37 @@
+{% set title = "Teleflora - itemname" %} {% extends "layout.html" %} {% block content %}
+<nav class="location">
+  <div class="address"><a href="">Home</a> / <a href="">Birthday</a></div>
+  <div class="now">{{item.name}}</div>
+</nav>
+<div class="gridWrapper">
+  <section class="itemImage">
+    <div class="image">
+      <img src="{{item.imgLink}}" alt="{{item.name}}" />
+    </div>
+  </section>
+  <section class="iteminfo">
+    <div class="title">{{item.name}}</div>
+    <div class="description">
+      <p>{{item.desc}}</p>
+      <p>{{item.summary}}</p>
+    </div>
+    <div class="price">{{item.price}}</div>
+  </section>
+  <section class="buyModule">
+    <div class="amount">
+      <input type="number" name="" id="" value="1" />
+      <div class="controller">
+        <a href="" class="up"
+          ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path
+              d="M492 236H276V20a20 20 0 10-40 0v216H20a20 20 0 100 40h216v216a20 20 0 1040 0V276h216a20 20 0 100-40z"
+            />
+          </svg>
+        </a>
+        <a href="" class="down">딴</a>
+      </div>
+    </div>
+    <button class="addCart">Add to Cart</button>
+  </section>
+</div>
+{% endblock %}
