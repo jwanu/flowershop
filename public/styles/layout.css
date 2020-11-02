@@ -6,7 +6,7 @@ button { -webkit-appearance: none; -moz-appearance: none; appearance: none; bord
 
 svg { height: 24px; }
 
-.header { height: 48px; background: #f7407b; }
+.header { height: 48px; background: #f7407b; z-index: 100; }
 
 @media (min-width: 768px) { .header { height: 64px; background: none; -webkit-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1); box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1); } }
 
@@ -28,21 +28,19 @@ svg { height: 24px; }
 
 @media (min-width: 768px) { .header .wrapper .logo svg { fill: #f7407b; } }
 
-.header .wrapper .menu { display: none; visibility: hidden; }
+.header .wrapper .menu { display: none; }
 
-@media (min-width: 768px) { .header .wrapper .menu { font-size: 14px; -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; visibility: visible; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; padding-left: 32px; } }
+@media (min-width: 768px) { .header .wrapper .menu { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; height: 100%; font-size: 14px; } }
 
-@media (min-width: 992px) { .header .wrapper .menu { padding-left: 40px; } }
+.header .wrapper .menu .left { display: -webkit-box; display: -ms-flexbox; display: flex; height: 100%; min-width: 296px; margin-left: 16px; }
 
-.header .wrapper .menu .left { display: -webkit-box; display: -ms-flexbox; display: flex; min-width: 352px; }
+.header .wrapper .menu .left div a { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; height: 100%; }
 
-@media (min-width: 992px) { .header .wrapper .menu .left { min-width: 360px; } }
+@media (min-width: 768px) { .header .wrapper .menu .left div a { padding: 0 8px; } }
 
-.header .wrapper .menu .left div { padding: 20px 8px; margin-right: 5px; }
+@media (min-width: 992px) { .header .wrapper .menu .left div a { padding: 0 16px; } }
 
-@media (min-width: 992px) { .header .wrapper .menu .left div { margin-right: 14px; } }
-
-.header .wrapper .menu .left div a { display: block; height: 100%; }
+@media (min-width: 1200px) { .header .wrapper .menu .left div a { padding: 0 32px; } }
 
 .header .wrapper .menu .right { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
 
@@ -70,13 +68,13 @@ svg { height: 24px; }
 
 @media (min-width: 576px) { .mobileNav { height: 50px; } }
 
-@media (min-width: 768px) { .mobileNav { display: none; visibility: hidden; } }
-
 .mobileNav button { width: 100%; }
 
 .mobileNav button a { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 
 .mobileNav button a svg { fill: #666; }
+
+@media (min-width: 768px) { .mobileNav { display: none; } }
 
 .mainBanner { margin: 0 auto; }
 

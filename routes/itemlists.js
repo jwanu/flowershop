@@ -18,16 +18,15 @@ router.route('/')
 });
 
 //이건 조건별 아이템리스트 불러올때로 수정해서 쓸 수 있을듯?
-// router.get('/:id/comments', async(req, res, next) => {
-//     try {
-//         const comments = await Comment.find({ commenter: req.params.id })
-//         .populate('commenter');
-//         console.log(comments);
-//         res.json(comments);
-//     } catch (err) {
-//         console.error(err);
-//         next(err);
-//     }
-// });
+router.get('/:cond', async(req, res, next) => {
+    try {
+        const items = await Itemlist.find({ 'desc': `/${req.params.condition}/i` });
+        console.log('오나',items);
+        res.json(items);
+    } catch (err) {
+        console.error(err);
+        next(err);
+    }
+});
 
 module.exports = router;

@@ -21,8 +21,8 @@
 
 @mixin grid($column: 12, $gap: 8px) {
   display: grid;
-    grid-template-columns: repeat($column, minmax(0,1fr));
-    gap: $gap;
+  grid-template-columns: repeat($column, minmax(0,1fr));
+  gap: $gap;
 }
 
 @mixin effect($s:0.2s,$f:ease){

@@ -5,6 +5,7 @@
 .header {
   height: 48px;
   background: $color1;
+  z-index: 100;
   @include md {
     height: 64px;
     background: none;
@@ -39,34 +40,28 @@
     }
     .menu {
       display: none;
-      visibility: hidden;
       @include md {
-        font-size: 14px;
-        flex-grow: 1;
-        visibility: visible;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-left: 32px;
-      }
-      @include lg {
-        padding-left: 40px;
+        flex-grow: 1;
+        height: 100%;
+        font-size: 14px;
       }
       .left {
         display: flex;
-        min-width: 352px;
-        @include lg {
-          min-width: 360px;
-        }
+        height: 100%;
+        min-width: 296px;
+        margin-left: 16px;
         div {
-          padding: 20px 8px;
-          margin-right: 5px;
-          @include lg {
-            margin-right: 14px;
-          }
           a {
-            display: block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             height: 100%;
+            @include md{ padding: 0 8px; }
+            @include lg{ padding: 0 16px; }
+            @include xl{ padding: 0 32px; }
           }
         }
       }
@@ -76,9 +71,7 @@
         justify-content: space-between;
         div {
           margin-left: 15px;
-          @include lg {
-            margin-left: 30px;
-          }
+          @include lg { margin-left: 30px; }
         }
         .searchArea {
           flex-grow: 1;
@@ -130,16 +123,10 @@
   right: 0;
   left: 0;
   height: 40px;
+  @include sm { height: 50px; }
   display: flex;
   background: #fff;
   box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.4);
-  @include sm {
-    height: 50px;
-  }
-  @include md {
-    display: none;
-    visibility: hidden;
-  }
   button {
     width: 100%;
     a {
@@ -151,6 +138,7 @@
       }
     }
   }
+  @include md { display: none; }
 }
 @import './index';
 @import './search';
@@ -203,7 +191,6 @@
         padding: 16px;
       }
     }
-
   }
   .policy{
     height: 60px;
