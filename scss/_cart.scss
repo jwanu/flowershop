@@ -1,0 +1,29 @@
+.inCart{
+    @include limited;
+    display: flex;
+    flex-direction: column;
+    padding: 0 16px;
+    .item{
+        display: flex;
+        border: 1px solid red;
+        .image{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            img{
+                width: 96px;
+                margin-bottom: 16px;
+            }
+            button{
+                padding: 8px 16px;
+                background: #222;
+                border-radius: 6px;
+                color: #fff;
+                font-weight: 500;
+            }
+        }
+        .summary{
+            flex-grow: 1;
+        }
+    }
+}

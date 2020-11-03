@@ -6,7 +6,9 @@ const router = express.Router();
 router.route('/').get(async (req, res, next) => {
   try {
     console.log(req.query);
-    const flower = new RegExp(req.query.flowers.replace(/,/g, '|'), 'i');
+    const flower = new RegExp(req.query.flowers.replace(/,/g, '\\s|\\s'), 'i');
+    console.log(req.query.flowers.replace(/,/g, '\\s|\\s'));
+    console.log(flower);
     const color = new RegExp(req.query.colors.replace(/,/g, '|'), 'i');
     const priceRange = req.query.priceRange ? req.query.priceRange
       .split(',')

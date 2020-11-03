@@ -1,2 +1,23 @@
 {% set title = "Teleflora - Cart" %} {% extends "layout.html" %} {% block content %}
+<nav class="location">
+  <div class="address"></div>
+  <div class="now">Cart</div>
+</nav>
+<section class="inCart">
+  <div class="item">
+    <div class="image">
+      <img
+        src="https://img.teleflora.com/images/o_0/l_flowers:TFL11-2A,pg_6/w_272,h_340,cs_no_cmyk,c_pad,g_south/f_auto,q_auto:eco,e_sharpen:200/flowers/TFL11-2A/Teleflora'sHelloAutumnBouquet"
+        alt="Teleflora's Hello Autumn Bouquet Bouquet"
+      />
+      <button class="remove">Remove</button>
+    </div>
+    <div class="summary">
+      <div class="name" data-label="name">카트아이템네임</div>
+      <div class="price" data-label="price">345.234</div>
+      <div class="qty" data-label="qty"></div>
+      <div class="total" data-label="total">663.3</div>
+    </div>
+  </div>
+</section>
 {% endblock %}

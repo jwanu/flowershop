@@ -9,6 +9,7 @@ router.get(/\//, async (req, res, next) => {
     try{
         //아이템리스트 페이지 처음 들어갈 때 아이템리스트 로딩하는것.
         if(req.url == '/itemlist'){
+            console.log('shshsh');
             obj = { itemlists : await Itemlist.find({}) };
         }
         if(req.url.includes('iteminfo')){

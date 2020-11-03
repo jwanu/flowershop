@@ -1,8 +1,7 @@
 async function getItemlist(flowers, colors, priceRange) {
   try {
-    console.log('이건',priceRange);
+    console.log('이건', priceRange);
     const tbody = document.querySelector('.items');
-    tbody.innerHTML ='<div class="item"><div class="image"></div></div><div class="item"><div class="image"></div></div><div class="item"><div class="image"></div></div><div class="item"><div class="image"></div></div><div class="item"><div class="image"></div></div><div class="item"><div class="image"></div></div>';
     const res = await axios.get(`/itemlists?flowers=${flowers}&colors=${colors}&priceRange=${priceRange}`);
     const itemlists = res.data;
     tbody.innerHTML = '';
@@ -50,7 +49,6 @@ async function getItemlist(flowers, colors, priceRange) {
 }
 
 const allCheckbox = document.querySelectorAll('input[type=checkbox]');
-
 allCheckbox.forEach((checkbox) => {
   checkbox.checked = false;
   checkbox.addEventListener('change', function () {
@@ -62,6 +60,5 @@ allCheckbox.forEach((checkbox) => {
       checkedBox[f.name].push(f.value);
     });
     getItemlist(checkedBox.flower, checkedBox.color, checkedBox.priceRange);
-
   });
 });
