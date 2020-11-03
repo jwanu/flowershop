@@ -1,19 +1,21 @@
-async function getItemlist(cond) {
+async function getItemlist(flowers, colors, priceRange) {
   try {
-    const res = await axios.get(`/itemlists/${cond}`);
-    const itemlists = res.data;
+    console.log('이건',priceRange);
     const tbody = document.querySelector('.items');
+    tbody.innerHTML ='<div class="item"><div class="image"></div></div><div class="item"><div class="image"></div></div><div class="item"><div class="image"></div></div><div class="item"><div class="image"></div></div><div class="item"><div class="image"></div></div><div class="item"><div class="image"></div></div>';
+    const res = await axios.get(`/itemlists?flowers=${flowers}&colors=${colors}&priceRange=${priceRange}`);
+    const itemlists = res.data;
     tbody.innerHTML = '';
-    itemlists.map(item => {
+    itemlists.map((item) => {
       const itemdiv = document.createElement('div');
       itemdiv.className = 'item';
       const itemlink = document.createElement('a');
-      itemlink.setAttribute('href',`/iteminfo/${item.id}`);
+      itemlink.setAttribute('href', `/iteminfo/${item._id}`);
       const imgdiv = document.createElement('div');
       imgdiv.className = 'image';
       const img = document.createElement('img');
-      img.setAttribute('src',`${item.thumb}`);
-      img.setAttribute('alt',`${item.name}`);
+      img.setAttribute('src', `${item.thumb}`);
+      img.setAttribute('alt', `${item.name}`);
       const pricediv = document.createElement('div');
       pricediv.className = 'price';
       pricediv.innerHTML = item.price;
@@ -29,7 +31,7 @@ async function getItemlist(cond) {
       const namediv2 = document.createElement('div');
       namediv2.className = 'name';
       namediv2.innerHTML = item.name;
-      
+
       itemdiv.appendChild(itemlink);
       itemlink.appendChild(imgdiv);
       itemlink.appendChild(infodiv);
@@ -41,20 +43,25 @@ async function getItemlist(cond) {
       infodiv.appendChild(namediv2);
 
       tbody.appendChild(itemdiv);
-    })
+    });
   } catch (err) {
     console.error(err);
   }
 }
 
-const filters = document.querySelectorAll('input[name=flower]');
-filters.forEach(filter => {
-  filter.addEventListener('change', function(){
-    if(this.checked){
-      console.log(this.value);
-      getItemlist(this.value);
-    }else{
+const allCheckbox = document.querySelectorAll('input[type=checkbox]');
 
-    }
+allCheckbox.forEach((checkbox) => {
+  checkbox.checked = false;
+  checkbox.addEventListener('change', function () {
+    const checkedBox = {};
+    checkedBox.flower = [];
+    checkedBox.color = [];
+    checkedBox.priceRange = [];
+    [...document.querySelectorAll('input[type=checkbox]:checked')].forEach((f) => {
+      checkedBox[f.name].push(f.value);
+    });
+    getItemlist(checkedBox.flower, checkedBox.color, checkedBox.priceRange);
+
   });
-})
+});

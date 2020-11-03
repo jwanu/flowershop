@@ -23,8 +23,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 
 
-app.use('/', indexRouter);
 app.use('/itemlists', itemlistsRouter);
+app.use('/', indexRouter);
 
 app.use((req, res, next) => {
     const error = new Error(`${req.method} ${req.url} 라우터없음`);
