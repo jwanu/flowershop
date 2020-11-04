@@ -2,6 +2,8 @@
     @include limited;
     @include grid(1);
     @include md{@include grid(5)};
+    margin-top: 32px;
+    margin-bottom: 32px;
 }
 
 .itemImage{
@@ -84,10 +86,10 @@
     .addCart{
         margin-left: 16px;
         flex-grow: 1;
-        background: $black;
-        color: #fff;
-        font-weight: 500;
-        font-size: 14px;
-        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        @include btn(true,50px);
     }
 }

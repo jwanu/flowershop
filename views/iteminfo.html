@@ -1,7 +1,9 @@
 {% set title = "Teleflora - itemname" %} {% extends "layout.html" %} {% block content %}
 <nav class="location">
-  <div class="address"><a href="">Home</a> / <a href="">Birthday</a></div>
-  <div class="now">{{item.name}}</div>
+  <div class="wrapper">
+    <div class="address"><a href="">Home</a> / <a href="">Birthday</a></div>
+    <div class="now">{{item.name}}</div>
+  </div>
 </nav>
 <div class="gridWrapper">
   <section class="itemImage">
@@ -19,19 +21,27 @@
   </section>
   <section class="buyModule">
     <div class="amount">
-      <input type="number" name="" id="" value="1" />
+      <input type="number" id="amount" value="1" max="9" />
       <div class="controller">
         <a href="" class="up"
-          ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 612 612">
             <path
-              d="M492 236H276V20a20 20 0 10-40 0v216H20a20 20 0 100 40h216v216a20 20 0 1040 0V276h216a20 20 0 100-40z"
+              d="M604.5 440.5L325.4 134.97c-5.33-5.36-12.42-7.63-19.39-7.27-6.99-.36-14.05 1.9-19.38 7.27L7.5 440.5c-10 10.02-10 26.3 0 36.32s26.22 10.03 36.22 0l262.3-287.16 262.26 287.16a25.57 25.57 0 0036.22 0c10-10.02 10-26.3 0-36.32z"
             />
           </svg>
         </a>
-        <a href="" class="down">딴</a>
+        <a href="" class="down">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 612 612">
+            <path
+              d="M604.5 134.78a25.53 25.53 0 00-36.22 0L306.01 422.56 43.72 134.78c-10-10.05-26.22-10.05-36.22 0s-10 26.35 0 36.4l279.1 306.24a25.25 25.25 0 0019.39 7.3 25.22 25.22 0 0019.38-7.3L604.5 171.15a25.8 25.8 0 000-36.37z"
+            />
+          </svg>
+        </a>
       </div>
     </div>
-    <button class="addCart">Add to Cart</button>
+    <button class="addCart" value="{{item._id}}">Add to Cart</button>
   </section>
 </div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/scripts/cart.js"></script>
 {% endblock %}

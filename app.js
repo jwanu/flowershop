@@ -6,6 +6,7 @@ const nunjucks = require('nunjucks');
 const connect = require('./schemas');
 const indexRouter = require('./routes');
 const itemlistsRouter = require('./routes/itemlists');
+const cartRouter = require('./routes/carts');
 
 const app = express();
 
@@ -24,7 +25,9 @@ app.use(express.urlencoded({ extended: false}));
 
 
 app.use('/itemlists', itemlistsRouter);
+app.use('/carts', cartRouter);
 app.use('/', indexRouter);
+
 
 app.use((req, res, next) => {
     const error = new Error(`${req.method} ${req.url} 라우터없음`);
