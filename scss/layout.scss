@@ -9,7 +9,7 @@
   @include md {
     height: 64px;
     background: none;
-    box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.1);
   }
   .wrapper {
     @include limited;
@@ -81,7 +81,7 @@
             width: 90%;
             border-radius: 15px;
             padding: 5px;
-            border: 2px solid #ddd;
+            border: $linegray;
             text-indent: 5px;
             font-size: 14px;
             @include effect(0.2s, $f-expo);
@@ -147,7 +147,7 @@
 @import './cart';
 
 .footer {
-  border-top: 1px solid #ddd;
+  border-top: $linegray;
   
   padding-top: 24px;
   .sitemap {
@@ -173,7 +173,7 @@
     }
     .logo{
       svg{
-        height: 48px;
+        height: 40px;
         fill: $color1;
         @include lg{height: 32px};
       }
@@ -185,6 +185,7 @@
         line-height: 1.4em;
       }
       input[type="email"]{
+        width: 90%;
         padding: 16px;
       }
       .phone{
@@ -195,8 +196,8 @@
   }
   .policy{
     height: 60px;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
+    border-top: $linegray;
+    border-bottom: $linegray;
     
     .wrapper{
       height: 100%;

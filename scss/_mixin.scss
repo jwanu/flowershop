@@ -38,3 +38,17 @@
     width: $xl-content;
   }
 }
+
+@mixin btn($bg:true,$height:40px){
+  text-align: center;
+  height: $height;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0 16px;
+  cursor: pointer;
+  @if $bg{
+    background: #222;
+    color: #fff;
+  }
+}

@@ -1,28 +1,29 @@
 @import './modules';
 .location {
-  @include limited;
   padding: 24px 16px;
   @include md {
     padding: 40px 32px;
   }
-
-  .address {
-    color: #777;
-    font-size: 14px;
-    margin-bottom: 16px;
-    a {
+  border-bottom: $linegray;
+  .wrapper {
+    @include limited;
+    .address {
       color: #777;
-      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 16px;
+      a {
+        color: #777;
+        text-decoration: none;
+      }
     }
-  }
-  .now {
-    font-size: 48px;
-    font-weight: 600;
+    .now {
+      font-size: 48px;
+      font-weight: 600;
+    }
   }
 }
 .filterSummary {
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
+  border-bottom: $linegray;
   .wrapper {
     @include limited;
     height: 56px;
@@ -54,8 +55,8 @@
         visibility: visible;
       }
       font-size: 14px;
-      select{
-          border: none;
+      select {
+        border: none;
       }
     }
     .mobileFilter {
@@ -100,14 +101,18 @@
       .title {
         font-weight: 500;
         height: 48px;
-        border-bottom: 1px solid #ddd;
+        border-bottom: $linegray;
       }
       ul {
         list-style: none;
         padding: 0;
         li {
-            label{display: block; height: 100%;cursor: pointer;}
-            
+          label {
+            display: block;
+            height: 100%;
+            cursor: pointer;
+          }
+
           padding: 8px 0;
           input[type='checkbox'] {
             display: none;
@@ -131,16 +136,16 @@
               fill: #fff;
             }
           }
-          .name{
-              color: #444;
-              @include effect;
+          .name {
+            color: #444;
+            @include effect;
           }
           &:hover {
             .check {
               box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
             }
-            .name{
-                color: #111;
+            .name {
+              color: #111;
             }
           }
         }
