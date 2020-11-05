@@ -38,16 +38,16 @@
       <div class="item">
         <div class="infos">
           <img
-            src="https://img.teleflora.com/images/o_0/l_flowers:TFL11-2A,pg_6/w_272,h_340,cs_no_cmyk,c_pad,g_south/f_auto,q_auto:eco,e_sharpen:200/flowers/TFL11-2A/Teleflora'sHelloAutumnBouquet"
-            alt="Teleflora's Hello Autumn Bouquet Bouquet"
+            src="{{item.img}}"
+            alt="{{item.name}}"
           />
-          <div class="name">Lorem Ipsum Flowers Dolor Sit amet Flowers</div>
+          <div class="name">{{item.name}}</div>
         </div>
         <div class="action">
-          <div class="price">45.23</div>
+          <div class="price">{{item.price}}</div>
           <div class="control">
             <div class="qtyblock">
-              <select name="qty" id="" >
+              <select name="qty" id="qty" >
               {% for i in range(0, 100) -%}
               {% if i == item.ea %}
                 <option value="{{i}}" selected>{{i}}</option>
@@ -73,7 +73,7 @@
               </svg>
             </button>
           </div>
-          <div class="total">45.23</div>
+          <div class="total">{{item.price*item.ea}}</div>
           <button class="remove">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
               <path
@@ -93,7 +93,7 @@
         <h4>Order Summary</h4>
         <div>
           <div class="title">Items Subtotal</div>
-          <div class="price">74.00</div>
+          <div class="price">{{subtotal}}</div>
         </div>
         <div>
           <div class="title">Order Total</div>

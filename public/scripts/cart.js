@@ -1,5 +1,5 @@
-async function addToCart(itemId,amount){
-    const res = await axios.post(`/carts?id=${itemId}&ea=${amount}`);
+async function addToCart(itemname,itemprice,itemimg,amount){
+    const res = await axios.post(`/carts?name=${itemname}&price=${itemprice}&img=${itemimg}&ea=${amount}`);
     const cartlists = res.data;
     document.querySelector('.howMany').innerHTML = amount;
     document.querySelector('.cartAmount').innerHTML = cartlists.length;
@@ -10,6 +10,8 @@ async function addToCart(itemId,amount){
 const addCart = document.querySelector('.addCart');
 addCart.addEventListener('click', ()=>{
     const amount = document.getElementById('amount').value;
-    const itemid = addCart.value;
-    addToCart(itemid,amount);
+    const itemname = addCart.dataset.name;
+    const itemprice = addCart.dataset.price;
+    const itemimg = addCart.dataset.img;
+    addToCart(itemname,itemprice,itemimg,amount);
 })

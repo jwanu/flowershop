@@ -16,15 +16,9 @@ router
   .post(async (req, res, next) => {
     try {
       let cartcookie = req.cookies.cartcookie || [];
-      // cartcookie = cartcookie.map((c) => {
-      //   if (c._id == req.query.id) {
-      //     c.ea += req.query.ea;
-      //   } else {
-      cartcookie.push({ _id: req.query.id, ea: req.query.ea });
-      //   }
-      // });
+      cartcookie.push({ name: req.query.name, price: req.query.price, img: req.query.img, ea: req.query.ea });
       res.cookie('cartcookie', cartcookie, {
-        maxAge: 6.048e8,
+        maxAge: 8.64e+7,
       });
       console.log(cartcookie);
       res.send(cartcookie);
