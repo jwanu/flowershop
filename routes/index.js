@@ -8,8 +8,14 @@ router.get(/\//, async (req, res, next) => {
     let obj = {};
     try{
         //아이템리스트 페이지 처음 들어갈 때 아이템리스트 로딩하는것.
+        if(req.url == '/cart'){
+            let cartcookie = req.cookies.cartcookie || [];
+            if(cartcookie){
+                //장바구니에 물건있을경우 표시시키기
+            }
+            //장바구니비었으면 그림 넣기~
+        }
         if(req.url == '/itemlist'){
-            console.log('shshsh');
             obj = { itemlists : await Itemlist.find({}) };
         }
         if(req.url.includes('iteminfo')){

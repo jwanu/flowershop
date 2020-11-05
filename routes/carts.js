@@ -1,4 +1,5 @@
 const express = require('express');
+const Itemlist = require('../schemas/product');
 
 const router = express.Router();
 
@@ -14,15 +15,12 @@ router
   })
   .post(async (req, res, next) => {
     try {
-        const itemid = req.query.id;
-        if(req.cookies.cart) {
-            const cart = req.cookies.cart;
-        }else{
-            const cart = {};
-        }
-        // if(!cart[id]){
-        //     cart[id] = 0;
-        // }
+        let cartcookie = req.cookies.cartcookie || [];
+        cartcookie.push({_id:req.query.id,ea:req.query.ea});
+        res.cookie('cartcookie', cartcookie, {
+          maxAge: 6.048e+8
+        });
+        res.send(cartcookie);
     } catch (err) {
       console.error(err);
       next(err);
