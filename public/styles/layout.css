@@ -60,7 +60,7 @@ svg { height: 24px; }
 
 .header .wrapper .menu .right .btn a { display: block; height: 100%; }
 
-.header .wrapper .menu .right .btn svg { fill: #222; -webkit-transition: all 0.1s cubic-bezier(1, 0, 0, 1); transition: all 0.1s cubic-bezier(1, 0, 0, 1); }
+.header .wrapper .menu .right .btn svg { fill: #222; }
 
 .header .wrapper .menu .right .btn svg:hover { fill: #f7407b; }
 

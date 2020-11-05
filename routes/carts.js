@@ -15,12 +15,19 @@ router
   })
   .post(async (req, res, next) => {
     try {
-        let cartcookie = req.cookies.cartcookie || [];
-        cartcookie.push({_id:req.query.id,ea:req.query.ea});
-        res.cookie('cartcookie', cartcookie, {
-          maxAge: 6.048e+8
-        });
-        res.send(cartcookie);
+      let cartcookie = req.cookies.cartcookie || [];
+      // cartcookie = cartcookie.map((c) => {
+      //   if (c._id == req.query.id) {
+      //     c.ea += req.query.ea;
+      //   } else {
+      cartcookie.push({ _id: req.query.id, ea: req.query.ea });
+      //   }
+      // });
+      res.cookie('cartcookie', cartcookie, {
+        maxAge: 6.048e8,
+      });
+      console.log(cartcookie);
+      res.send(cartcookie);
     } catch (err) {
       console.error(err);
       next(err);

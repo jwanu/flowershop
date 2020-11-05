@@ -105,7 +105,6 @@
           }
           svg {
             fill: #222;
-            @include effect(0.1s, $f-expo);
             &:hover {
               fill: $color1;
             }

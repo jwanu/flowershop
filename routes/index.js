@@ -11,6 +11,11 @@ router.get(/\//, async (req, res, next) => {
         if(req.url == '/cart'){
             let cartcookie = req.cookies.cartcookie || [];
             if(cartcookie){
+                const idarr = cartcookie.map(v => {
+                    this._id = v._id;
+                })
+                console.log(idarr);
+                obj = { cartcookie, cartitems : await Itemlist.find({$or:[{_id:'5f9a8014403dec9978ba83a9'},{_id:'5f9bbec43413d786fd8f807f'}]})};
                 //장바구니에 물건있을경우 표시시키기
             }
             //장바구니비었으면 그림 넣기~

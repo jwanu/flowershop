@@ -8,7 +8,7 @@
 <div class="cartWrapper">
   <div class="left">
     <section class="cartControl">
-      <div class="results">3 Items in cart</div>
+      <div class="results">{{cartcookie.length}} Item{% if cartcookie.length > 1%}s{% endif %} in cart</div>
       <button class="clearCart">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
           <path
@@ -34,6 +34,7 @@
           <div></div>
         </div>
       </div>
+      {% for item in cartcookie %}
       <div class="item">
         <div class="infos">
           <img
@@ -46,16 +47,14 @@
           <div class="price">45.23</div>
           <div class="control">
             <div class="qtyblock">
-              <select name="qty" id="">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
+              <select name="qty" id="" >
+              {% for i in range(0, 100) -%}
+              {% if i == item.ea %}
+                <option value="{{i}}" selected>{{i}}</option>
+                {% else %}
+                <option value="{{i}}">{{i}}</option>
+              {% endif %}
+              {%- endfor %}
               </select>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 612 612">
                 <path
@@ -84,6 +83,7 @@
           </button>
         </div>
       </div>
+      {% endfor %}
     </section>
   </div>
   <div class="right">
@@ -114,4 +114,6 @@
     </section>
   </div>
 </div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/scripts/cart.js"></script>
 {% endblock %}
