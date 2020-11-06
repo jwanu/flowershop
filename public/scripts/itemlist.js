@@ -1,8 +1,10 @@
+
 async function getItemlist(flowers, colors, priceRange) {
   try {
-    console.log('이건', priceRange);
     const tbody = document.querySelector('.items');
-    const res = await axios.get(`/itemlists?flowers=${flowers}&colors=${colors}&priceRange=${priceRange}`);
+    console.log('주소찾기: ',window.location.href.split('/itemlist/'));
+    const catid = window.location.href.split('/itemlist/').length > 1 ? window.location.href.split('/itemlist/')[1] : 0;
+    const res = await axios.get(`/itemlists?category=${catid}&flowers=${flowers}&colors=${colors}&priceRange=${priceRange}`);
     const itemlists = res.data;
     tbody.innerHTML = '';
     itemlists.map((item) => {

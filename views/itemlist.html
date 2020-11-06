@@ -38,13 +38,13 @@
 {% block content %}
 <nav class="location">
   <div class="wrapper">
-    <div class="address"><a href="/">Home</a> / <a href="">Birthday</a></div>
-    <div class="now">Birthday</div>
+    <div class="address"><a href="/">Home</a> / <a href="">{{cat | capitalize}}</a></div>
+    <div class="now">{{cat | capitalize}}</div>
   </div>
 </nav>
 <div class="filterSummary">
   <div class="wrapper">
-    <div class="summary">1-24 of 192 results</div>
+    <div class="summary">1-24 of {{itemlists | length}} results</div>
     <div class="sortby">
       <select name="" id="">
         <option value="price_asc">Sort by Price (low to high)</option>

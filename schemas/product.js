@@ -19,6 +19,9 @@ const itemlistSchema = new Schema({
   },
   thumb: {
     type: String,
+  },
+  category: {
+    type: Array,
   }
 });
 

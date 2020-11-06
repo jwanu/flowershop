@@ -21,7 +21,8 @@ router.route('/').get(async (req, res, next) => {
         { desc: flower },
         { desc: color },
     ];
-    
+
+    req.query.category.length > 2 ? condition.push({category: req.query.category}) : 0;
     priceRange && priceRange.length > 0 ? condition.push({$or: priceRange}) : 0;
     const items = await Itemlist.find({ $and: condition });
     res.json(items);
