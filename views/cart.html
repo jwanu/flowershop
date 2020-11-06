@@ -6,6 +6,7 @@
   </div>
 </nav>
 <div class="cartWrapper">
+  {% if cartcookie %}
   <div class="left">
     <section class="cartControl">
       <div class="results">{{cartcookie.length}} Item{% if cartcookie.length > 1%}s{% endif %} in cart</div>
@@ -22,7 +23,14 @@
       </button>
     </section>
     <section class="announce">
-      <div>Receive Teleflora emails and be the first to know about exclusive offers, promotions, and more.</div>
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -10 511.99 511">
+          <path
+            d="M510.65 185.88a27.18 27.18 0 00-23.4-18.68l-147.8-13.42-58.4-136.75a27.22 27.22 0 00-50.08 0l-58.4 136.75L24.73 167.2a27.26 27.26 0 00-15.46 47.6L121 312.78 88.06 457.86a27.2 27.2 0 0040.5 29.42L256 411.08l127.42 76.2a27.2 27.2 0 0029.93-1.32 27.2 27.2 0 0010.58-28.1L391 312.77l111.72-97.96a27.25 27.25 0 007.94-28.93zm-252.2 223.73"
+          />
+        </svg>
+        Receive Teleflora emails and be the first to know about exclusive offers, promotions, and more.
+      </div>
     </section>
     <section class="inCart">
       <div class="itemheader">
@@ -34,27 +42,22 @@
           <div></div>
         </div>
       </div>
-      {% for item in cartcookie %}
+      {% set ordertotal = 0 %} {% for item in cartcookie %}
       <div class="item">
         <div class="infos">
-          <img
-            src="{{item.img}}"
-            alt="{{item.name}}"
-          />
+          <img src="{{item.img}}" alt="{{item.name}}" />
           <div class="name">{{item.name}}</div>
         </div>
         <div class="action">
           <div class="price">{{item.price}}</div>
           <div class="control">
             <div class="qtyblock">
-              <select name="qty" id="qty" >
-              {% for i in range(0, 100) -%}
-              {% if i == item.ea %}
+              <select name="qty" class="quantity">
+                {% for i in range(1, 100) -%} {% if i == item.ea %}
                 <option value="{{i}}" selected>{{i}}</option>
                 {% else %}
                 <option value="{{i}}">{{i}}</option>
-              {% endif %}
-              {%- endfor %}
+                {% endif %} {%- endfor %}
               </select>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 612 612">
                 <path
@@ -62,7 +65,7 @@
                 />
               </svg>
             </div>
-            <button class="remove">
+            <button class="remove" data-idx="{{loop.index - 1}}">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <path
                   d="M456 58.76H326V20a20 20 0 00-20-20H206a20 20 0 00-20 20v38.76H56a20 20 0 00-20 20v78.33a20 20 0 0020 20h30V462c0 27.57 22.43 50 50 50h240c27.57 0 50-22.43 50-50V177.1h30a20 20 0 0020-20V78.76a20 20 0 00-20-20zM226 40h60v18.75h-60V40zm160 422c0 5.51-4.49 10-10 10H136c-5.51 0-10-4.49-10-10V177.1h260V462zm50-324.9H76V98.76h360v38.33z"
@@ -73,8 +76,8 @@
               </svg>
             </button>
           </div>
-          <div class="total">{{item.price*item.ea}}</div>
-          <button class="remove">
+          <div class="total">{% set thistotal = item.price*item.ea %}{{ thistotal | round(2) }}</div>
+          <button class="remove" data-idx="{{loop.index - 1}}">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
               <path
                 d="M284.28 256L506.14 34.14a20 20 0 10-28.28-28.28L256 227.72 34.14 5.86A20 20 0 105.86 34.14L227.72 256 5.86 477.86a20 20 0 1028.28 28.28L256 284.28l221.86 221.86a20 20 0 1028.28-28.28L284.28 256z"
@@ -83,7 +86,7 @@
           </button>
         </div>
       </div>
-      {% endfor %}
+      {% set ordertotal = ordertotal + thistotal %} {% endfor %}
     </section>
   </div>
   <div class="right">
@@ -93,11 +96,11 @@
         <h4>Order Summary</h4>
         <div>
           <div class="title">Items Subtotal</div>
-          <div class="price">{{subtotal}}</div>
+          <div class="price">{{ordertotal | round(2)}}</div>
         </div>
         <div>
           <div class="title">Order Total</div>
-          <div class="price">74.00</div>
+          <div class="price">{{ordertotal | round(2)}}</div>
         </div>
       </div>
       <div class="promo">
@@ -113,6 +116,12 @@
       </div>
     </section>
   </div>
+  {% else %}
+  <section class="cartisEmpty">
+    <h2>Your Cart is Empty!</h2>
+    <button class="goShopping">Find Flowers</button>
+  </section>
+  {% endif %}
 </div>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="/scripts/cart.js"></script>

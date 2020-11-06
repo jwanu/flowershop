@@ -458,15 +458,17 @@ svg { height: 24px; }
 
 .cartControl .results { font-weight: 500; }
 
-.cartControl .clearCart { height: 40px; padding: 8px; border: 1px solid #ef3340; border-radius: 6px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+.cartControl .clearCart { text-align: center; height: 40px; border: 1px solid #ebebeb; border-radius: 6px; font-size: 14px; font-weight: 500; padding: 0 16px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; cursor: pointer; }
 
-.cartControl .clearCart svg { fill: #ef3340; height: 20px; margin-right: 8px; }
+.cartControl .clearCart svg { fill: #bbb; height: 20px; margin-right: 8px; }
 
-.cartControl .clearCart span { color: #ef3340; font-size: 14px; font-weight: 500; }
+.cartControl .clearCart span { color: #bbb; font-size: 14px; font-weight: 500; }
 
 .announce { padding: 16px; }
 
-.announce div { border-radius: 6px; background: #eee; font-size: 14px; padding: 16px; font-weight: 400; }
+.announce div { border-radius: 6px; background-color: rgba(245, 166, 35, 0.1); font-size: 14px; padding: 16px; font-weight: 400; }
+
+.announce div svg { height: 16px; vertical-align: top; margin-right: 6px; fill: #ff9e1c; }
 
 .inCart { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; border-top: 1px solid #ebebeb; }
 

@@ -7,12 +7,16 @@ router
   .route('/')
   .get(async (req, res, next) => {
     try {
-      console.log('haha');
+      let cartcookie = req.cookies.cartcookie || [];
+      cartcookie[(+req.query.idx)].ea = req.query.ea;
+      res.cookie('cartcookie', cartcookie);
+      res.send(cartcookie);
     } catch (err) {
       console.error(err);
       next(err);
     }
   })
+  
   .post(async (req, res, next) => {
     try {
       let cartcookie = req.cookies.cartcookie || [];
@@ -27,5 +31,27 @@ router
       next(err);
     }
   });
+
+router.get('/delete', async (req, res, next) => {
+  try {
+    let cartcookie = req.cookies.cartcookie || [];
+    cartcookie.splice(req.query.idx,1);
+    res.cookie('cartcookie', cartcookie);
+    res.send(cartcookie);
+  } catch (err) {
+    console.error(err);
+    next(err);
+  }
+});
+
+router.get('/deleteAll', async (req, res, next) => {
+  try {
+    res.clearCookie('cartcookie');
+    res.send();
+  } catch (err) {
+    console.error(err);
+    next(err);
+  }
+});
 
 module.exports = router;

@@ -10,15 +10,12 @@ router.get(/\//, async (req, res, next) => {
         //아이템리스트 페이지 처음 들어갈 때 아이템리스트 로딩하는것.
         if(req.url == '/cart'){
             let cartcookie = req.cookies.cartcookie || [];
-            if(cartcookie){
-                const idarr = cartcookie.map(v => {
-                    this._id = v._id;
-                })
-                console.log(idarr);
-                obj = { cartcookie, cartitems : await Itemlist.find({$or:[{_id:'5f9a8014403dec9978ba83a9'},{_id:'5f9bbec43413d786fd8f807f'}]})};
-                //장바구니에 물건있을경우 표시시키기
+            if(cartcookie && cartcookie.length > 0 ){
+                obj = { cartcookie };
             }
-            //장바구니비었으면 그림 넣기~
+        }
+        if(req.url == '/itemlist/:itemlist'){
+            obj = { itemlists : await Itemlist.find({}) };
         }
         if(req.url == '/itemlist'){
             obj = { itemlists : await Itemlist.find({}) };

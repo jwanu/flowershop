@@ -29,19 +29,14 @@
     font-weight: 500;
   }
   .clearCart {
-    height: 40px;
-    padding: 8px;
-    border: 1px solid $alert;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
+    @include btn(false);
     svg {
-      fill: $alert;
+      fill: #bbb;
       height: 20px;
       margin-right: 8px;
     }
     span {
-      color: $alert;
+      color: #bbb;
       font-size: 14px;
       font-weight: 500;
     }
@@ -51,10 +46,16 @@
   padding: 16px;
   div {
     border-radius: 6px;
-    background: #eee;
+    background-color: rgba(245,166,35,.1);
     font-size: 14px;
     padding: 16px;
     font-weight: 400;
+    svg{
+      height: 16px;
+      vertical-align: top;
+      margin-right: 6px;
+      fill: #ff9e1c;
+    }
   }
 }
 .inCart {

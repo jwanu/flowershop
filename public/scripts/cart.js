@@ -1,17 +1,22 @@
-async function addToCart(itemname,itemprice,itemimg,amount){
-    const res = await axios.post(`/carts?name=${itemname}&price=${itemprice}&img=${itemimg}&ea=${amount}`);
-    const cartlists = res.data;
-    document.querySelector('.howMany').innerHTML = amount;
-    document.querySelector('.cartAmount').innerHTML = cartlists.length;
+const quantities = document.querySelectorAll('.quantity');
+quantities.forEach((v,i) => {
+    v.addEventListener('change', async ()=>{
+        const selected = v.value;
+        const res = await axios.get(`/carts?idx=${i}&ea=${selected}`);
+        location.reload();
+    });
+});
 
-    //res.data에 내가 보낸 res쿠키가 있으니 이거로 카트미리보기 생성시키기
-}
+const removes = document.querySelectorAll('.remove');
+removes.forEach((v) => {
+    v.addEventListener('click', async () => {
+        const res = await axios.get(`/carts/delete?idx=${v.dataset.idx}`);
+        location.reload();
+    });
+})
 
-const addCart = document.querySelector('.addCart');
-addCart.addEventListener('click', ()=>{
-    const amount = document.getElementById('amount').value;
-    const itemname = addCart.dataset.name;
-    const itemprice = addCart.dataset.price;
-    const itemimg = addCart.dataset.img;
-    addToCart(itemname,itemprice,itemimg,amount);
+const clearCart = document.querySelector('.clearCart');
+clearCart.addEventListener('click', async () => {
+    const res = await axios.get(`/carts/deleteAll`);
+    location.reload();
 })
