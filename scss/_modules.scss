@@ -14,7 +14,7 @@
       justify-content: center;
       align-items: center;
       background-color: #f7f9fb;
-      border-radius: 8px;
+      border-radius: $radius;
       height: 200px;
       @include md{ height: 240px };
       @include lg{ height: 224px };
@@ -48,6 +48,34 @@
   }
 }
 
+@mixin itemGrid2 {
+  display: flex;
+  justify-content: center;
+  width: 408px;
+  @include md{ width: 736px };
+  @include lg{ width: 796px };
+  @include xl{ width: 1144px };
+  .item {
+    margin-right: 8px;
+    &:last-child{
+      margin-right: 0;
+    }
+    .image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f7f9fb;
+      border-radius: $radius;
+      width: 200px;
+      height: 200px;
+      @include md{ width: 240px; height: 240px };
+      @include lg{ width: 260px; height: 260px };
+      @include xl{ width: 280px; height: 280px };
+      img { height: 90% };
+    }
+  }
+}
+
 @mixin itemFlex {
   margin: 0 auto;
   display: flex;
@@ -71,7 +99,7 @@
       justify-content: center;
       align-items: center;
       background-color: #f7f9fb;
-      border-radius: 8px;
+      border-radius: $radius;
       width: 200px;
       height: 200px;
       @include sm{ width: 256px; height: 256px };

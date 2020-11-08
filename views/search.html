@@ -1,5 +1,5 @@
 {% set title = "Teleflora - Search" %} {% extends "layout.html" %} {% block heading %}
-<section class="mobileSearchWrapper">
+<div class="mobileSearchWrapper">
   <div class="mobileSearch">
     <input type="search" class="mobileSearchInput" placeholder="mother's day" />
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -8,7 +8,7 @@
         />
       </svg>
   </div>
-</section>
+</div>
 {% endblock %} {% block content %}
 <section class="occasion">
   <div class="list">Birthday</div>
@@ -28,4 +28,6 @@
     <!-- db로 flowertype in flowertypes 뿌리면 될듯. 컬러도 마찬가지 -->
   </div>
 </div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/scripts/search.js"></script>
 {% endblock %}

@@ -2,13 +2,13 @@ const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
 const nunjucks = require('nunjucks');
-const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
 const connect = require('./schemas');
 const indexRouter = require('./routes');
 const itemlistsRouter = require('./routes/itemlists');
 const cartRouter = require('./routes/carts');
+// const searchRouter = require('./routes/search');
 
 const app = express();
 
@@ -26,6 +26,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 app.use(cookieParser());
 
+// app.use('/search', searchRouter);
 app.use('/itemlists', itemlistsRouter);
 app.use('/carts', cartRouter);
 app.use('/', indexRouter);

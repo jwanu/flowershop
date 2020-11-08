@@ -37,7 +37,8 @@
 }
 
 @mixin limited{
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   @include lg {
     width: $lg-content;
   }

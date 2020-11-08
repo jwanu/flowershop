@@ -353,3 +353,7 @@ template {
 div{
   box-sizing: border-box;
 }
+
+button, input:focus, select{
+  outline: none;
+}
