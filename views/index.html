@@ -33,6 +33,7 @@
 <section class="shopByMain">
   <h2>Deliver the Joy of fragrance!</h2>
   <article>
+    <a href="/itemlist/birthday">
     <img src="/images/500-3.jpg" alt="Birthday banner" />
     <div class="text">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -49,8 +50,10 @@
       <h3>Birthday</h3>
       <span>Celebrate with Beautiful flowers</span>
     </div>
+  </a>
   </article>
   <article>
+    <a href="/itemlist/bestsellers">
     <img src="/images/500-4.jpg" alt="Bestsellers banner" />
     <div class="text">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -61,13 +64,15 @@
           d="M505.23 6.74A23.03 23.03 0 00485.15.32L324.08 27.37a18.94 18.94 0 00-15.4 12.96c-2.57 7.8-.28 16.54 5.97 22.8l8.73 8.72-108.9 108.9-60.23 60.23-55.75 55.75a37.77 37.77 0 00-11.14 26.89c0 10.15 3.95 19.7 11.14 26.89l24.44 24.44-18.89 18.89a46.27 46.27 0 00-25.11-7.34 46.3 46.3 0 00-32.95 13.65L2.97 443.17a10 10 0 007.54 17.06l42.12-2-.83 43.58a10 10 0 0017.07 7.26l43.02-43.02a46.67 46.67 0 006.3-58.06l18.9-18.9 24.44 24.45c7.19 7.18 16.73 11.14 26.9 11.14s19.7-3.96 26.88-11.14L353.17 275.7l28.23-28.24 58.79-58.79 8.65 8.65a23.18 23.18 0 0016.3 7.01c2.2 0 4.38-.34 6.5-1.03a18.94 18.94 0 0012.95-15.4L511.64 26.8a23.03 23.03 0 00-6.41-20.07zM97.75 451.9l-25.48 25.48.55-29.47a10 10 0 00-10.47-10.18l-26.95 1.28 24.73-24.73a26.43 26.43 0 0118.81-7.8 26.63 26.63 0 0118.8 45.41zm103.42-52.51c-3.4 3.4-7.93 5.28-12.75 5.28s-9.34-1.88-12.74-5.28l-63.04-63.04a17.9 17.9 0 01-5.28-12.74 17.9 17.9 0 015.28-12.75l50.95-50.95 123.65 53.4-86.07 86.08zM313.6 286.96l-11.16 11.15-123.65-53.4 54.4-54.4 123.65 53.4-43.24 43.25zm58.45-58.46l-123.65-53.4L337.52 86l44.23 44.22 44.3 44.3-53.99 53.98zm92.86-44.21a3.64 3.64 0 01-1.94-1.12l-15.71-15.72-61.98-61.97 95.52-15.8-15.9 94.6zm27-160.8l-7.61 45.34-116.42 19.25-23.3-23.3-15.8-15.8a3.64 3.64 0 01-1.11-1.93l160.79-27a2.94 2.94 0 012.62.83c.4.4 1.06 1.3.83 2.62z"
         />
       </svg>
-
       <h3>Bestsellers</h3>
       <span>Meet our Bestselling products</span>
     </div>
+  </a>
   </article>
   <article>
+    <a href="/itemlist/getwell">
     <img src="/images/500-1.jpg" alt="Getwell banner" />
+    
     <div class="text">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 508 508">
         <path
@@ -77,8 +82,10 @@
       <h3>Get Well</h3>
       <span>We're sending you all of the good and healthy vibes</span>
     </div>
+  </a>
   </article>
   <article>
+    <a href="/itemlist/sympathy">
     <img src="/images/500-2.jpg" alt="Sympathy banner" />
     <div class="text">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -93,6 +100,7 @@
       <span>Recovery can sometimes be the hardest part</span>
     </div>
   </article>
+</a>
 </section>
 <section class="wideBanner">
   <a href="">
@@ -107,59 +115,22 @@
     <div>Fill your home with our favorite fall flowers that are sure to bring the season's beauty inside!</div>
   </article>
   <article class="items">
-    <div class="item">
-    <a href="">
-      <div class="image">
-        <img src="https://img.teleflora.com/images/o_0/l_flowers:TFL11-2A,pg_6/w_272,h_340,cs_no_cmyk,c_pad,g_south/f_auto,q_auto:eco,e_sharpen:200/flowers/TFL11-2A/Teleflora'sHelloAutumnBouquet" alt="Teleflora's Hello Autumn Bouquet Bouquet">
+    <div class="slider">
+    {% set haha = [1,2,3,4,5,6] %}
+    {% for ha in haha %}
+      <div class="item">
+        <a href="">
+          <div class="image">
+            <img src="https://img.teleflora.com/images/o_0/l_flowers:TFL11-2A,pg_6/w_272,h_340,cs_no_cmyk,c_pad,g_south/f_auto,q_auto:eco,e_sharpen:200/flowers/TFL11-2A/Teleflora'sHelloAutumnBouquet" alt="Teleflora's Hello Autumn Bouquet Bouquet">
+          </div>
+          <!-- <div class="info">
+            <div class="name">Hello Autumn Bouquet</div>
+            <div class="price">47.49</div>
+          </div> -->
+        </a>
       </div>
-      <div class="info">
-        <div class="name">Hello Autumn Bouquet</div>
-        <div class="price">47.49</div>
-      </div>
-    </a>
-    </div>
-    <div class="item">
-    <a href="">
-      <div class="image">
-        <img
-          src="https://img.teleflora.com/images/o_0/l_flowers:T20T300A,pg_6/w_272,h_340,cs_no_cmyk,c_pad,g_south/f_auto,q_auto:eco,e_sharpen:200/flowers/T20T300A/Teleflora'sAutumnColorsBouquet"
-          alt="Teleflora's Autumn Colors Bouquet Bouquet"
-        />
-      </div>
-      <div class="info">
-        <div class="name">Hello Autumn Bouquet</div>
-        <div class="price">47.49</div>
-      </div>
-    </a>
-    </div>
-    <div class="item">
-    <a href="">
-      <div class="image">
-        <img
-          src="https://img.teleflora.com/images/o_0/l_flowers:T20T210A,pg_6/w_272,h_340,cs_no_cmyk,c_pad,g_south/f_auto,q_auto:eco,e_sharpen:200/flowers/T20T210A/Teleflora'sRusticSunriseBouquet"
-          alt="Teleflora's Rustic Sunrise Bouquet Bouquet"
-        />
-      </div>
-      <div class="info">
-        <div class="name">Hello Autumn Bouquet</div>
-        <div class="price">47.49</div>
-      </div>
-    </a>
-    </div>
-    <div class="item">
-    <a href="">
-      <div class="image">
-        <img
-          src="https://img.teleflora.com/images/o_0/l_flowers:T20T110A,pg_6/w_272,h_340,cs_no_cmyk,c_pad,g_south/f_auto,q_auto:eco,e_sharpen:200/flowers/T20T110A/Teleflora'sGoldenBountyCenterpiece"
-          alt="Teleflora's Golden Bounty Centerpiece Bouquet"
-        />
-      </div>
-      <div class="info">
-        <div class="name">Hello Autumn Bouquet</div>
-        <div class="price">47.49</div>
-      </div>
-    </a>
-    </div>
+    {% endfor %}
+  </div>
   </article>
 </section>
 <section class="justforyou">

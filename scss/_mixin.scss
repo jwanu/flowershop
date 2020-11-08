@@ -29,6 +29,13 @@
   transition: all $s $f;
 }
 
+@mixin hover-shadow{
+  @include effect;
+  &:hover {
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.2);
+  }
+}
+
 @mixin limited{
   margin: 0 auto;
   @include lg {
@@ -43,7 +50,7 @@
   text-align: center;
   height: $height;
   border: $linegray;
-  border-radius: 6px;
+  border-radius: $radius;
   font-size: 14px;
   font-weight: 500;
   padding: 0 16px;

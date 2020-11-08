@@ -17,7 +17,7 @@ router.get(/\//, async (req, res, next) => {
         if(req.url == '/itemlist'){
             obj = { itemlists : await Itemlist.find({}) };
         }
-        if(req.url.includes('itemlist')){
+        if(req.url.includes('itemlist/')){
             const cat = req.url.split('/')[2];
             obj = { itemlists : await Itemlist.find({ category: cat }), cat };
             req.url = '/itemlist';

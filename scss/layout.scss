@@ -3,12 +3,12 @@
 @import './global';
 
 .header {
+  position: sticky;
   height: 48px;
-  background: $color1;
   z-index: 100;
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.05);
   @include md {
     height: 64px;
-    background: none;
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.1);
   }
   .wrapper {
@@ -32,10 +32,7 @@
       }
       svg {
         height: 100%;
-        fill: white;
-        @include md {
-          fill: $color1;
-        }
+        fill: $darkgray;
       }
     }
     .menu {
@@ -46,7 +43,6 @@
         align-items: center;
         flex-grow: 1;
         height: 100%;
-        font-size: 14px;
       }
       .left {
         display: flex;
@@ -55,13 +51,20 @@
         margin-left: 16px;
         div {
           a {
+            font-size: 14px;
+            color: $darkgray;
+            font-weight: 400;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100%;
+            @include effect;
             @include md{ padding: 0 8px; }
             @include lg{ padding: 0 16px; }
             @include xl{ padding: 0 32px; }
+            &:hover{
+              color: $color1;
+            }
           }
         }
       }
@@ -70,7 +73,7 @@
         align-items: center;
         justify-content: space-between;
         div {
-          margin-left: 15px;
+          margin-left: 14px;
           @include lg { margin-left: 30px; }
         }
         .searchArea {
@@ -79,23 +82,19 @@
           justify-content: flex-end;
           .searchInput {
             width: 90%;
-            border-radius: 15px;
-            padding: 5px;
-            border: $linegray;
-            text-indent: 5px;
+            padding: 6px;
+            border: 2px solid #ebebeb;
+            border-radius: $radius;
+            text-indent: 6px;
             font-size: 14px;
-            @include effect(0.2s, $f-expo);
+            @include effect(0.2s, ease);
             &:hover {
-              border: 2px solid transparentize($color1, 0.4);
+              border: 2px solid transparentize($color1, 0.7);
             }
             &:focus {
+              outline: none;
               border: 2px solid $color1;
             }
-          }
-          .search {
-            position: absolute;
-            right: 0;
-            top: -25%;
           }
         }
         .btn {
@@ -104,7 +103,7 @@
             height: 100%;
           }
           svg {
-            fill: #222;
+            fill: $darkgray;
             &:hover {
               fill: $color1;
             }
@@ -122,7 +121,7 @@
   right: 0;
   left: 0;
   height: 40px;
-  @include sm { height: 50px; }
+  @include sm { height: 48px; }
   display: flex;
   background: #fff;
   box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.4);
@@ -133,7 +132,7 @@
       justify-content: center;
       align-items: center;
       svg {
-        fill: #666;
+        fill: $midgray;
       }
     }
   }
@@ -152,6 +151,7 @@
   .sitemap {
     @include limited;
     @include grid(2,16px);
+    @include md{@include grid(3)};
     @include lg{@include grid(6)};
     padding: 16px;
     @include lg{padding: 24px 0};
@@ -179,7 +179,8 @@
     }
     .mailing{
       grid-column: 1 / 3;
-      @include lg{grid-column: 5 / 7};
+      @include md{grid-column: 2 / 4;}
+      @include lg{grid-column: 5 / 7;}
       p{
         line-height: 1.4em;
       }
