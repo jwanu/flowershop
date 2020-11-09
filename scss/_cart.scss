@@ -243,3 +243,23 @@
     }
   }
 }
+
+.cartisEmpty{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 800px;
+  svg{
+    height: 40px;
+  }
+  h2{
+    font-size: 40px;
+    font-weight: 600;
+    color: $color1;
+  }
+  .goShopping{
+    @include btn(true);
+  }
+}

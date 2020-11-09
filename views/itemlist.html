@@ -15,11 +15,10 @@
        name: 'flower',
        options:[
          {value:'Alstroemeria',text:'Alstroemeria'},
-         {value:'Birds of Paradise',text:'Birds of Paradise'},
          {value:'Carnations',text:'Carnations'},
          {value:'Chrysanthemums',text:'Chrysanthemums'},
          {value:'Daisies',text:'Daisies'},
-         {value:'Gerbera Daisies',text:'Gerbera Daisies'},
+         {value:'Lavender',text:'Lavender'},
          {value:'Hydrangea',text:'Hydrangea'},
          {value:'Lilies',text:'Lilies'}
          ]
@@ -39,7 +38,13 @@
 <nav class="location">
   <div class="wrapper">
     <div class="address"><a href="/">Home</a> / <a href="">{{cat | capitalize}}</a></div>
-    <div class="now">{{cat | capitalize}}</div>
+    <div class="now">
+    {% if cat %}
+    {{cat | capitalize}}
+    {% else %}
+    All Flowers
+    {% endif %}
+    </div>
   </div>
 </nav>
 <div class="filterSummary">

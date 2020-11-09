@@ -4,10 +4,11 @@ const Itemlist = require('../schemas/product');
 const router = express.Router();
 
 router.get(/\//, async (req, res, next) => {
-    if(req.url === '/') req.url = '/index';
     let obj = {};
     try{
-        //아이템리스트 페이지 처음 들어갈 때 아이템리스트 로딩하는것.
+        if(req.url === '/'){
+            req.url = '/index';
+        } 
         if(req.url == '/cart'){
             let cartcookie = req.cookies.cartcookie || [];
             if(cartcookie && cartcookie.length > 0 ){
@@ -15,9 +16,13 @@ router.get(/\//, async (req, res, next) => {
             }
         }
         if(req.url == '/itemlist'){
-            obj = { itemlists : await Itemlist.find({}) };
+            obj = { itemlists : await Itemlist.find({})};
         }
-        if(req.url.includes('itemlist/'))
+        if(req.url.includes('itemlist/search')){
+            const q = new RegExp(req.query.q,'i');
+            obj = { itemlists : await Itemlist.find({$or:[]})};
+            req.url = '/itemlist';
+        }
         if(req.url.includes('itemlist/')){
             const cat = req.url.split('/')[2];
             obj = { itemlists : await Itemlist.find({ category: cat }), cat };

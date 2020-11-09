@@ -1,7 +1,15 @@
 @import './variables';
 @import './mixin';
 @import './global';
-
+.blackout{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.1);
+  display: none;
+}
 .header {
   position: sticky;
   height: 52px;
@@ -73,8 +81,8 @@
         align-items: center;
         justify-content: space-between;
         div {
-          margin-left: 14px;
-          @include lg { margin-left: 30px; }
+          margin-left: 8px;
+          @include lg { margin-left: 16px; }
         }
         .searchArea {
           flex-grow: 1;
@@ -98,6 +106,7 @@
           }
         }
         .btn {
+          padding: 4px;
           a {
             display: block;
             height: 100%;
@@ -184,10 +193,26 @@
       p{
         line-height: 1.4em;
       }
-      input[type="email"]{
-        width: 90%;
-        padding: 16px;
+      .maildiv{
+        border: $linegray;
+        border-radius: $radius;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        input[type="email"]{
+          width: 60%;
+          padding: 16px;
+          border: none;
+        }
+        button{
+          @include btn(true);
+          margin-right: 8px;
+          svg{
+            fill: #fff;
+          }
+        }
       }
+      
       .phone{
         text-align: center;
         padding: 16px;

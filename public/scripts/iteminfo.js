@@ -3,9 +3,29 @@ async function addToCart(itemname,itemprice,itemimg,amount){
     const cartlists = res.data;
     document.querySelector('.howMany').innerHTML = amount;
     document.querySelector('.cartAmount').innerHTML = cartlists.length;
-
-    //res.data에 내가 보낸 res쿠키가 있으니 이거로 카트미리보기 생성시키기
+    popupControl('block');
 }
+
+let popup = false;
+
+function popupControl(how) {
+    if(how == 'block') popup = true;
+    else popup = false;
+    console.log(popup);
+    document.querySelector('.cartPreview').style.display = how;
+    document.querySelector('.blackout').style.display = how;
+}
+
+document.querySelector('.closethis').addEventListener('click',()=>{
+    popupControl('none');
+});
+
+// function eaControl(how){
+//     document.querySelector('#amount').value += 1;
+//     console.log(document.querySelector('#amount').value);
+// }
+// document.querySelector('.controller .up').addEventListener('click', eaControl('up'))
+
 
 const addCart = document.querySelector('.addCart');
 addCart.addEventListener('click', ()=>{

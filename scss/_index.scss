@@ -222,7 +222,10 @@ section{
     }
   }
   .items {
+    @include limited;
+    .slider{
     @include itemGrid2;
+  }
   }
 }
 

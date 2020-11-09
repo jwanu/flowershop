@@ -1,5 +1,5 @@
 async function getSearchResult(input){
-    const res = await axios.get(`/search?q=${input}`);
+    const res = await axios.get(`/itemlist/search?q=${input}`);
 
 }
 
