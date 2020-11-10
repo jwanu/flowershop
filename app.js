@@ -3,11 +3,14 @@ const path = require('path');
 const morgan = require('morgan');
 const nunjucks = require('nunjucks');
 const cookieParser = require('cookie-parser');
+const fs = require('fs');
+const HTTPS = require('https');
 
 const connect = require('./schemas');
 const indexRouter = require('./routes');
 const itemlistsRouter = require('./routes/itemlists');
 const cartRouter = require('./routes/carts');
+const { SSL_OP_CRYPTOPRO_TLSEXT_BUG } = require('constants');
 // const searchRouter = require('./routes/search');
 
 const app = express();
@@ -45,6 +48,21 @@ app.use((err, req, res, next) => {
     res.render('error');
 });
 
-app.listen(app.get('port'), ()=> {
-    console.log(app.get('port'), '번 포트대기중');
-})
+try {
+    const option = {
+        ca: fs.readFileSync('/etc/letsencrypt/live/ec2-52-78-96-229.ap-northeast-2.compute.amazonaws.com/fullchain.pem'),
+        key: fs.readFileSync(path.resolve(process.cwd(), '/etc/letsencrypt/live/ec2-52-78-96-229.ap-northeast-2.compute.amazonaws.com/privkey.pem'),'utf8').toString(),
+        cert: fs.readFileSync(path.resolve(process.cwd(), '/etc/letsencrypt/live/ec2-52-78-96-229.ap-northeast-2.compute.amazonaws.com/cert.pem'),'utf8').toString(),
+    };
+
+    HTTPS.createServer(option, app).listen(sslport, ()=>{
+        colorConsole.success(`[HTTPS] Server is started on port ${colors.cyan(sslport)}`);
+    });
+} catch (err) {
+    colorConsole.error(`[HTTPS] HTTPS 오류가 발생하였습니다. HTTPS 서버가 실행되지 않습니다.`);
+    colorConsole.warn(error);
+}
+
+// app.listen(app.get('port'), ()=> {
+//     console.log(app.get('port'), '번 포트대기중');
+// })
