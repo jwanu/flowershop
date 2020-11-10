@@ -223,6 +223,7 @@ section{
   }
   .items {
     @include limited;
+    overflow: hidden;
     .slider{
     @include itemGrid2;
   }
