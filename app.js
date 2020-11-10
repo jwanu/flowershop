@@ -3,14 +3,13 @@ const path = require('path');
 const morgan = require('morgan');
 const nunjucks = require('nunjucks');
 const cookieParser = require('cookie-parser');
-const fs = require('fs');
-const HTTPS = require('https');
+// const fs = require('fs');
+// const HTTPS = require('https');
 
 const connect = require('./schemas');
 const indexRouter = require('./routes');
 const itemlistsRouter = require('./routes/itemlists');
 const cartRouter = require('./routes/carts');
-const { SSL_OP_CRYPTOPRO_TLSEXT_BUG } = require('constants');
 // const searchRouter = require('./routes/search');
 
 const app = express();
@@ -30,9 +29,9 @@ app.use(express.urlencoded({ extended: false}));
 app.use(cookieParser());
 
 // app.use('/search', searchRouter);
-app.use('/teleflora/itemlists', itemlistsRouter);
-app.use('/teleflora/carts', cartRouter);
-app.use('/teleflora/', indexRouter);
+app.use('/itemlists', itemlistsRouter);
+app.use('/carts', cartRouter);
+app.use('/', indexRouter);
 
 
 app.use((req, res, next) => {
