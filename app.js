@@ -60,7 +60,7 @@ try {
     });
 } catch (err) {
     console.error(`[HTTPS] HTTPS 오류가 발생하였습니다. HTTPS 서버가 실행되지 않습니다.`);
-    console.log(error);
+    console.log(err);
 }
 
 // app.listen(app.get('port'), ()=> {
