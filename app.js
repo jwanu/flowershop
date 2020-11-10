@@ -27,9 +27,9 @@ app.use(express.urlencoded({ extended: false}));
 app.use(cookieParser());
 
 // app.use('/search', searchRouter);
-app.use('/itemlists', itemlistsRouter);
-app.use('/carts', cartRouter);
-app.use('/', indexRouter);
+app.use('/teleflora/itemlists', itemlistsRouter);
+app.use('/teleflora/carts', cartRouter);
+app.use('/teleflora/', indexRouter);
 
 
 app.use((req, res, next) => {
