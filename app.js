@@ -55,12 +55,12 @@ try {
         cert: fs.readFileSync(path.resolve(process.cwd(), '/etc/letsencrypt/live/ec2-52-78-96-229.ap-northeast-2.compute.amazonaws.com/cert.pem'),'utf8').toString(),
     };
 
-    HTTPS.createServer(option, app).listen(sslport, ()=>{
-        colorConsole.success(`[HTTPS] Server is started on port ${colors.cyan(sslport)}`);
+    HTTPS.createServer(option, app).listen(app.get('port'), ()=>{
+        console.log(`[HTTPS] Server is started on port ${app.get('port')}}`);
     });
 } catch (err) {
-    colorConsole.error(`[HTTPS] HTTPS 오류가 발생하였습니다. HTTPS 서버가 실행되지 않습니다.`);
-    colorConsole.warn(error);
+    console.error(`[HTTPS] HTTPS 오류가 발생하였습니다. HTTPS 서버가 실행되지 않습니다.`);
+    console.log(error);
 }
 
 // app.listen(app.get('port'), ()=> {
