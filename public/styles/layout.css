@@ -180,7 +180,7 @@ section { margin-top: 24px; margin-bottom: 24px; }
 
 .promotion .banner div { width: 60%; text-align: center; }
 
-.promotion .items { margin-left: auto; margin-right: auto; }
+.promotion .items { margin-left: auto; margin-right: auto; overflow: hidden; }
 
 @media (min-width: 992px) { .promotion .items { width: 960px; } }
 
