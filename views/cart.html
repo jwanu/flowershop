@@ -1,5 +1,4 @@
 {% set title = "Teleflora - Cart" %} {% extends "layout.html" %} {% block content %}
-{% if cartcookie %}
 <nav class="location">
   <div class="wrapper">
     <div class="address"></div>
@@ -42,6 +41,7 @@
           <div></div>
         </div>
       </div>
+      {% if cartcookie %}
       {% set ordertotal = 0 %} {% for item in cartcookie %}
       <div class="item">
         <div class="infos">
@@ -54,9 +54,6 @@
             <div class="qtyblock">
               <select name="qty" class="quantity" onchange="changeQuantity({{loop.index - 1}}, this.value)">
                 {% for i in range(1, 100) -%} {% if i == item.ea %}
-                <script>
-                  console.log('왈랄라 : ',{{item.ea}})
-                </script>
                 <option value="{{i}}" selected="true">{{i}}</option>
                 {% else %}
                 <option value="{{i}}">{{i}}</option>
@@ -89,7 +86,20 @@
           </button>
         </div>
       </div>
-      {% set ordertotal = ordertotal + thistotal %} {% endfor %}
+      {% set ordertotal = ordertotal + thistotal %} {% endfor %} {% else %}
+      <div class="cartisEmpty">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 231.52 231.52">
+          <path
+            d="M107.42 145.8a7.5 7.5 0 0014.92-1.54l-3.46-33.47a7.5 7.5 0 00-14.92 1.54l3.46 33.47zM154.35 152.49c.26.02.52.04.78.04a7.5 7.5 0 007.45-6.73l3.46-33.47a7.5 7.5 0 10-14.92-1.54l-3.46 33.47a7.5 7.5 0 006.7 8.23zM96.28 185.09a23.24 23.24 0 00-23.22 23.21 23.24 23.24 0 0023.22 23.22 23.25 23.25 0 0023.21-23.22 23.24 23.24 0 00-23.21-23.21zm0 31.43a8.23 8.23 0 010-16.43 8.22 8.22 0 010 16.43zM173.72 185.09a23.24 23.24 0 00-23.22 23.21 23.24 23.24 0 0023.22 23.22 23.25 23.25 0 0023.22-23.22 23.24 23.24 0 00-23.22-23.21zm0 31.43a8.23 8.23 0 010-16.43 8.23 8.23 0 010 16.43z"
+          />
+          <path
+            d="M218.58 79.08a7.5 7.5 0 00-5.93-2.91H63.15l-6.28-24.14a7.5 7.5 0 00-7.25-5.62H18.88a7.5 7.5 0 000 15h24.94l6.22 23.95.1.4L73.3 174.8a7.5 7.5 0 007.26 5.62h108.88a7.5 7.5 0 007.26-5.62l23.2-89.25a7.5 7.5 0 00-1.32-6.47zm-34.94 86.34H86.36l-19.3-74.25h135.89l-19.31 74.25zM105.56 52.85a7.48 7.48 0 0010.6 0 7.5 7.5 0 000-10.6L92.57 18.65a7.5 7.5 0 00-10.6 10.61l23.59 23.58zM159.17 55.05c1.92 0 3.85-.74 5.31-2.2l23.55-23.58a7.5 7.5 0 10-10.6-10.6l-23.56 23.57a7.5 7.5 0 005.3 12.8zM135 48.31a7.5 7.5 0 007.5-7.5l.02-33.3a7.5 7.5 0 00-15 0l-.01 33.3a7.5 7.5 0 007.5 7.5z"
+          />
+        </svg>
+        <h2>Your Cart is Empty!</h2>
+        <a class="goShopping" href="../itemlist">Find Flowers</a>
+      </div>
+      {% endif %}
     </section>
   </div>
   <div class="right">
@@ -99,11 +109,11 @@
         <h4>Order Summary</h4>
         <div>
           <div class="title">Items Subtotal</div>
-          <div class="price">{{ordertotal | round(2)}}</div>
+          <div class="price">{{(ordertotal | round(2)) if ordertotal else "0" }}</div>
         </div>
         <div>
           <div class="title">Order Total</div>
-          <div class="price">{{ordertotal | round(2)}}</div>
+          <div class="price">{{(ordertotal | round(2)) if ordertotal else "0" }}</div>
         </div>
       </div>
       <div class="promo">
@@ -119,20 +129,6 @@
       </div>
     </section>
   </div>
-  {% else %}
-  <section class="cartisEmpty">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 231.52 231.52">
-      <path
-        d="M107.42 145.8a7.5 7.5 0 0014.92-1.54l-3.46-33.47a7.5 7.5 0 00-14.92 1.54l3.46 33.47zM154.35 152.49c.26.02.52.04.78.04a7.5 7.5 0 007.45-6.73l3.46-33.47a7.5 7.5 0 10-14.92-1.54l-3.46 33.47a7.5 7.5 0 006.7 8.23zM96.28 185.09a23.24 23.24 0 00-23.22 23.21 23.24 23.24 0 0023.22 23.22 23.25 23.25 0 0023.21-23.22 23.24 23.24 0 00-23.21-23.21zm0 31.43a8.23 8.23 0 010-16.43 8.22 8.22 0 010 16.43zM173.72 185.09a23.24 23.24 0 00-23.22 23.21 23.24 23.24 0 0023.22 23.22 23.25 23.25 0 0023.22-23.22 23.24 23.24 0 00-23.22-23.21zm0 31.43a8.23 8.23 0 010-16.43 8.23 8.23 0 010 16.43z"
-      />
-      <path
-        d="M218.58 79.08a7.5 7.5 0 00-5.93-2.91H63.15l-6.28-24.14a7.5 7.5 0 00-7.25-5.62H18.88a7.5 7.5 0 000 15h24.94l6.22 23.95.1.4L73.3 174.8a7.5 7.5 0 007.26 5.62h108.88a7.5 7.5 0 007.26-5.62l23.2-89.25a7.5 7.5 0 00-1.32-6.47zm-34.94 86.34H86.36l-19.3-74.25h135.89l-19.31 74.25zM105.56 52.85a7.48 7.48 0 0010.6 0 7.5 7.5 0 000-10.6L92.57 18.65a7.5 7.5 0 00-10.6 10.61l23.59 23.58zM159.17 55.05c1.92 0 3.85-.74 5.31-2.2l23.55-23.58a7.5 7.5 0 10-10.6-10.6l-23.56 23.57a7.5 7.5 0 005.3 12.8zM135 48.31a7.5 7.5 0 007.5-7.5l.02-33.3a7.5 7.5 0 00-15 0l-.01 33.3a7.5 7.5 0 007.5 7.5z"
-      />
-    </svg>
-    <h2>Your Cart is Empty!</h2>
-    <a class="goShopping" href="../itemlist">Find Flowers</a>
-  </section>
-  {% endif %}
 </div>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="/scripts/cart.js"></script>

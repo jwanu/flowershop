@@ -1,32 +1,27 @@
-async function clearCart (){
-//   await axios.get(`/carts/deleteAll`);
-//   location.replace(`/carts/deleteAll`);
-
-  const res = await axios.get(`/carts/deleteAll`);
-  console.log(res);
+const clearCart = () => {
+  document.querySelectorAll('.item').forEach(item => item.remove());
+  axios.get(`/carts/deleteAll`);
+  changeOrdertotal();
 };
 
-async function changeQuantity (index, quantity) {
-//   await axios.get(`/carts?idx=${index}&ea=${quantity}`);
-  location.replace(`/carts?idx=${index}&ea=${quantity}`);
+const changeItemtotal = (index, quantity) => {
+  document.querySelectorAll('.total')[index].innerHTML = (document.querySelectorAll('.item>.action>.price')[index].innerHTML * quantity).toFixed(2);
+  changeOrdertotal();
 };
 
-async function deleteItem (itemIndex) {
-  await axios.get(`/carts/delete?idx=${itemIndex}`);
-  // location.replace(`/carts/delete?idx=${itemIndex}`);
+const changeQuantity = (index, quantity) => {
+  axios.get(`/carts?idx=${index}&ea=${quantity}`);
+  changeItemtotal(index,quantity);
+};
+
+const deleteItem = (itemIndex) => {
+  axios.get(`/carts/delete?idx=${itemIndex}`);
   document.querySelectorAll('.item')[itemIndex].remove();
-  document.querySelectorAll('.bill>div>.price').values('재계산');
+  changeOrdertotal();
 };
 
-// document.querySelector(".clearCart").addEventListener("click", clearCart);
-
-// document.querySelectorAll(".quantity").forEach((quantityController, index) => {
-//   quantityController.addEventListener(
-//     "change",
-//     changeQuantity(index, quantityController.value)
-//   );
-// });
-
-// document.querySelectorAll(".remove").forEach((v) => {
-//   v.addEventListener("click", deleteItem(v.dataset.idx));
-// });
+const changeOrdertotal = () => {
+  const ordertotal = [...document.querySelectorAll('.item>.action>.total')].length > 0 ? ([...document.querySelectorAll('.item>.action>.total')].map(v => v = Number(v.innerHTML)).reduce((acc,cur) => acc + cur)).toFixed(2) : 0;
+  ordertotal? ordertotal : 0 ;
+  document.querySelectorAll('.bill>div>.price').forEach(total => total.innerHTML = ordertotal);
+};

@@ -10,7 +10,7 @@ router
       let cartcookie = req.cookies.cartcookie || [];
       cartcookie[+req.query.idx].ea = req.query.ea;
       res.cookie("cartcookie", cartcookie);
-      res.redirect("/cart");
+      res.send();
       // res.send(cartcookie);
     } catch (err) {
       console.error(err);
@@ -30,7 +30,6 @@ router
       res.cookie("cartcookie", cartcookie, {
         maxAge: 8.64e7,
       });
-      console.log(cartcookie);
       res.send(cartcookie);
     } catch (err) {
       console.error(err);
@@ -43,7 +42,7 @@ router.get("/delete", async (req, res, next) => {
     let cartcookie = req.cookies.cartcookie || [];
     cartcookie.splice(req.query.idx, 1);
     await res.cookie("cartcookie", cartcookie);
-    // res.redirect("/cart");
+    res.send();
   } catch (err) {
     console.error(err);
     next(err);
@@ -53,7 +52,7 @@ router.get("/delete", async (req, res, next) => {
 router.get("/deleteAll", async (req, res, next) => {
   try {
     res.clearCookie("cartcookie");
-    res.redirect("/cart");
+    res.send();
   } catch (err) {
     console.error(err);
     next(err);

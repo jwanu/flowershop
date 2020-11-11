@@ -2,7 +2,7 @@
 async function getItemlist(flowers, colors, priceRange) {
   try {
     const tbody = document.querySelector('.items');
-    console.log('주소찾기: ',window.location.href.split('/itemlist/'));
+    // console.log('주소찾기: ',window.location.href.split('/itemlist/'));
     const catid = window.location.href.split('/itemlist/').length > 1 ? window.location.href.split('/itemlist/')[1] : 0;
     const res = await axios.get(`/itemlists?category=${catid}&flowers=${flowers}&colors=${colors}&priceRange=${priceRange}`);
     const itemlists = res.data;
@@ -50,8 +50,7 @@ async function getItemlist(flowers, colors, priceRange) {
   }
 }
 
-const allCheckbox = document.querySelectorAll('input[type=checkbox]');
-allCheckbox.forEach((checkbox) => {
+document.querySelectorAll('input[type=checkbox]').forEach((checkbox) => {
   checkbox.checked = false;
   checkbox.addEventListener('change', function () {
     const checkedBox = {};
