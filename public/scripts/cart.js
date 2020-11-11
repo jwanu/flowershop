@@ -12,8 +12,10 @@ async function changeQuantity (index, quantity) {
 };
 
 async function deleteItem (itemIndex) {
-//   await axios.get(`/carts/delete?idx=${itemIndex}`);
-  location.replace(`/carts/delete?idx=${itemIndex}`);
+  await axios.get(`/carts/delete?idx=${itemIndex}`);
+  // location.replace(`/carts/delete?idx=${itemIndex}`);
+  document.querySelectorAll('.item')[itemIndex].remove();
+  document.querySelectorAll('.bill>div>.price').values('재계산');
 };
 
 // document.querySelector(".clearCart").addEventListener("click", clearCart);

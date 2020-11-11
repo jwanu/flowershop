@@ -43,7 +43,7 @@ router.get("/delete", async (req, res, next) => {
     let cartcookie = req.cookies.cartcookie || [];
     cartcookie.splice(req.query.idx, 1);
     await res.cookie("cartcookie", cartcookie);
-    res.redirect("/cart");
+    // res.redirect("/cart");
   } catch (err) {
     console.error(err);
     next(err);
