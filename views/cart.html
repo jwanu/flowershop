@@ -10,7 +10,7 @@
   <div class="left">
     <section class="cartControl">
       <div class="results">{{cartcookie.length}} Item{% if cartcookie.length > 1%}s{% endif %} in cart</div>
-      <button class="clearCart">
+      <button class="clearCart" onclick="clearCart()">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
           <path
             d="M456 58.76H326V20a20 20 0 00-20-20H206a20 20 0 00-20 20v38.76H56a20 20 0 00-20 20v78.33a20 20 0 0020 20h30V462c0 27.57 22.43 50 50 50h240c27.57 0 50-22.43 50-50V177.1h30a20 20 0 0020-20V78.76a20 20 0 00-20-20zM226 40h60v18.75h-60V40zm160 422c0 5.51-4.49 10-10 10H136c-5.51 0-10-4.49-10-10V177.1h260V462zm50-324.9H76V98.76h360v38.33z"
@@ -52,9 +52,12 @@
           <div class="price">{{item.price}}</div>
           <div class="control">
             <div class="qtyblock">
-              <select name="qty" class="quantity">
+              <select name="qty" class="quantity" onchange="changeQuantity({{loop.index - 1}}, this.value)">
                 {% for i in range(1, 100) -%} {% if i == item.ea %}
-                <option value="{{i}}" selected>{{i}}</option>
+                <script>
+                  console.log('왈랄라 : ',{{item.ea}})
+                </script>
+                <option value="{{i}}" selected="true">{{i}}</option>
                 {% else %}
                 <option value="{{i}}">{{i}}</option>
                 {% endif %} {%- endfor %}
@@ -65,7 +68,7 @@
                 />
               </svg>
             </div>
-            <button class="remove" data-idx="{{loop.index - 1}}">
+            <button class="remove" onclick="deleteItem({{loop.index - 1}})">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <path
                   d="M456 58.76H326V20a20 20 0 00-20-20H206a20 20 0 00-20 20v38.76H56a20 20 0 00-20 20v78.33a20 20 0 0020 20h30V462c0 27.57 22.43 50 50 50h240c27.57 0 50-22.43 50-50V177.1h30a20 20 0 0020-20V78.76a20 20 0 00-20-20zM226 40h60v18.75h-60V40zm160 422c0 5.51-4.49 10-10 10H136c-5.51 0-10-4.49-10-10V177.1h260V462zm50-324.9H76V98.76h360v38.33z"
@@ -77,7 +80,7 @@
             </button>
           </div>
           <div class="total">{% set thistotal = item.price*item.ea %}{{ thistotal | round(2) }}</div>
-          <button class="remove" data-idx="{{loop.index - 1}}">
+          <button class="remove" onclick="deleteItem({{loop.index - 1}})">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
               <path
                 d="M284.28 256L506.14 34.14a20 20 0 10-28.28-28.28L256 227.72 34.14 5.86A20 20 0 105.86 34.14L227.72 256 5.86 477.86a20 20 0 1028.28 28.28L256 284.28l221.86 221.86a20 20 0 1028.28-28.28L284.28 256z"

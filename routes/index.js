@@ -12,6 +12,7 @@ router.get(/\//, async (req, res, next) => {
         if(req.url == '/cart'){
             let cartcookie = req.cookies.cartcookie || [];
             if(cartcookie && cartcookie.length > 0 ){
+                console.log(cartcookie);
                 obj = { cartcookie };
             }
         }

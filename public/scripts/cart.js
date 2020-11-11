@@ -1,21 +1,30 @@
-document.querySelectorAll('.quantity').forEach((v,i) => {
-    v.addEventListener('change', async ()=>{
-        const selected = v.value;
-        const res = await axios.get(`/carts?idx=${i}&ea=${selected}`);
-        location.reload();
-    });
-});
+async function clearCart (){
+//   await axios.get(`/carts/deleteAll`);
+//   location.replace(`/carts/deleteAll`);
 
-document.querySelectorAll('.remove').forEach((v) => {
-    v.addEventListener('click', async () => {
-        const res = await axios.get(`/carts/delete?idx=${v.dataset.idx}`);
-        location.reload();
-    });
-})
+  const res = await axios.get(`/carts/deleteAll`);
+  console.log(res);
+};
 
-const clearCart = async () => {
-    const res = await axios.get(`/carts/deleteAll`);
-    location.reload();
-}
+async function changeQuantity (index, quantity) {
+//   await axios.get(`/carts?idx=${index}&ea=${quantity}`);
+  location.replace(`/carts?idx=${index}&ea=${quantity}`);
+};
 
-document.querySelector('.clearCart').addEventListener('click', clearCart());
+async function deleteItem (itemIndex) {
+//   await axios.get(`/carts/delete?idx=${itemIndex}`);
+  location.replace(`/carts/delete?idx=${itemIndex}`);
+};
+
+// document.querySelector(".clearCart").addEventListener("click", clearCart);
+
+// document.querySelectorAll(".quantity").forEach((quantityController, index) => {
+//   quantityController.addEventListener(
+//     "change",
+//     changeQuantity(index, quantityController.value)
+//   );
+// });
+
+// document.querySelectorAll(".remove").forEach((v) => {
+//   v.addEventListener("click", deleteItem(v.dataset.idx));
+// });
