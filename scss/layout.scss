@@ -67,9 +67,9 @@
             align-items: center;
             height: 100%;
             @include effect;
-            @include md{ padding: 0 8px; }
-            @include lg{ padding: 0 12px; }
-            @include xl{ padding: 0 20px; }
+            @include md{ padding: 0 16px; }
+            @include lg{ padding: 0 20px; }
+            @include xl{ padding: 0 26px; }
             &:hover{
               color: $color1;
             }
@@ -81,7 +81,7 @@
         align-items: center;
         justify-content: space-between;
         div {
-          margin-left: 8px;
+          margin-left: 4px;
           @include lg { margin-left: 16px; }
         }
         .searchArea {

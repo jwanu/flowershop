@@ -1,12 +1,8 @@
 @import "./modules";
 
-section{
-  margin-top: 24px;
-  margin-bottom: 24px;
-}
 .mainBanner {
   @include limited;
-  margin-top: 0;
+
   .backgroundImage {
     height: 0;
     width: 100%;
@@ -23,6 +19,7 @@ section{
 .notice {
   @include limited;
   @include grid(1, 0);
+  @include xl { margin-top: 8px; }
   @include xl { @include grid(2); }
   article {
     @include xl {
@@ -196,6 +193,7 @@ section{
 }
 .promotion {
   padding: 0 24px;
+  margin-bottom: 40px;
   .banner {
     display: flex;
     flex-direction: column;
@@ -223,9 +221,11 @@ section{
   }
   .items {
     @include limited;
-    overflow: hidden;
+    display: flex;
+    justify-content: center;
     .slider{
-    @include itemGrid2;
+      @include itemGrid2;
+      overflow: hidden;
   }
   }
 }
