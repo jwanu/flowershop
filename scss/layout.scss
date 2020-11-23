@@ -15,9 +15,11 @@
   height: 52px;
   z-index: 100;
   box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.05);
+  @include transiting;
   @include md {
+    @include transiting;
     height: 64px;
-    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.05);
   }
   .wrapper {
     @include limited;
@@ -40,7 +42,7 @@
       }
       svg {
         height: 100%;
-        fill: $darkgray;
+        fill: $color1;
       }
     }
     .menu {
@@ -81,7 +83,7 @@
         align-items: center;
         justify-content: space-between;
         div {
-          margin-left: 4px;
+          margin-left: 8px;
           @include lg { margin-left: 16px; }
         }
         .searchArea {
@@ -164,6 +166,7 @@
     @include lg{@include grid(6)};
     padding: 16px;
     @include lg{padding: 24px 0};
+    @include transiting;
     div{
       h4{
         margin: 0;

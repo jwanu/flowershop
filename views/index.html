@@ -116,21 +116,18 @@
   </article>
   <article class="items">
     <div class="slider">
-    {% set haha = [1,2,3,4] %}
-    {% for ha in haha %}
-      <div class="item">
-        <a href="">
-          <div class="image">
-            <img src="https://img.teleflora.com/images/o_0/l_flowers:TFL11-2A,pg_6/w_272,h_340,cs_no_cmyk,c_pad,g_south/f_auto,q_auto:eco,e_sharpen:200/flowers/TFL11-2A/Teleflora'sHelloAutumnBouquet" alt="Teleflora's Hello Autumn Bouquet Bouquet">
-          </div>
-          <!-- <div class="info">
-            <div class="name">Hello Autumn Bouquet</div>
-            <div class="price">47.49</div>
-          </div> -->
-        </a>
+      <div class="sliding">
+      {% for item in itemlists %}
+        <div class="item">
+          <a href="">
+            <div class="image">
+              <img src="{{item.thumb}}" alt="{{item.name}}">
+            </div>
+          </a>
+        </div>
+      {% endfor %}
       </div>
-    {% endfor %}
-  </div>
+    </div>
   </article>
 </section>
 <section class="deal">
@@ -140,4 +137,5 @@
     <button>ORDER NOW</button>
   </div>
 </section>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 {% endblock %}

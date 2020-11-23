@@ -55,6 +55,7 @@
   @include md{ width: 736px };
   @include lg{ width: 796px };
   @include xl{ width: 1144px };
+  
   .item {
     margin-right: 8px;
     &:last-child{
@@ -86,13 +87,12 @@
   @include lg{ width: 634px };
   @include xl{ width: 881px };
   .item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     width: 50%;
+    margin-bottom: 8px;
     @include md{ width: 33.333333% };
     @include lg{ width: 50% };
     @include xl{ width: 33.333333%; height: 331px; };
+    a{ display: flex; flex-direction: column; align-items: center;};
     .image {
       position: relative;
       display: flex;
@@ -163,6 +163,7 @@
     }
    
     .info {
+      max-width: 90%;
       position: relative;
       display: flex;
       justify-content: center;

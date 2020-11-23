@@ -32,8 +32,12 @@
 @mixin hover-shadow{
   @include effect;
   &:hover {
-    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.1);
   }
+}
+
+@mixin transiting{
+  transition: all .3s ease-in-out;
 }
 
 @mixin limited{

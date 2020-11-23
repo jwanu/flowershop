@@ -7,6 +7,7 @@ router.get(/\//, async (req, res, next) => {
     let obj = {};
     try{
         if(req.url === '/'){
+            obj = { itemlists : await Itemlist.find({ category: 'autumn'}).limit(8)};
             req.url = '/index';
         } 
         if(req.url == '/cart'){
