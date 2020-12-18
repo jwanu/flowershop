@@ -2,7 +2,6 @@
 async function getItemlist(flowers, colors, priceRange) {
   try {
     const tbody = document.querySelector('.items');
-    // console.log('주소찾기: ',window.location.href.split('/itemlist/'));
     const catid = window.location.href.split('/itemlist/').length > 1 ? window.location.href.split('/itemlist/')[1] : 0;
     const res = await axios.get(`/itemlists?category=${catid}&flowers=${flowers}&colors=${colors}&priceRange=${priceRange}`);
     const itemlists = res.data;
@@ -42,7 +41,6 @@ async function getItemlist(flowers, colors, priceRange) {
       quickInfodiv.appendChild(namediv);
       quickInfodiv.appendChild(infop);
       infodiv.appendChild(namediv2);
-
       tbody.appendChild(itemdiv);
     });
   } catch (err) {
