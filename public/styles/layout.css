@@ -288,7 +288,7 @@ svg { height: 24px; }
 
 .filterSummary .wrapper .sortby select { border: none; }
 
-.filterSummary .wrapper .mobileFilter { height: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+.filterSummary .wrapper .mobileFilter { height: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; cursor: pointer; }
 
 .filterSummary .wrapper .mobileFilter svg { height: 16px; }
 
@@ -302,11 +302,12 @@ svg { height: 24px; }
 
 @media (min-width: 1200px) { .itemview { width: 1180px; } }
 
-.itemview .filters { -ms-flex-negative: 0; flex-shrink: 0; display: none; visibility: hidden; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; margin-right: 16px; width: 309px; }
+.itemview .filters { position: absolute; z-index: 10; left: -100vw; width: 100%; padding: 0 16px; background: #fff; overflow: hidden; -webkit-transition: all .2s ease; transition: all .2s ease; }
 
-@media (min-width: 992px) { .itemview .filters { width: 283px; } }
+.itemview .filters.toggleVis { -webkit-transform: translateX(100vw); transform: translateX(100vw); }
 
-@media (min-width: 992px) { .itemview .filters { display: -webkit-box; display: -ms-flexbox; display: flex; visibility: visible; } }
+@media (min-width: 992px) { .itemview .filters { width: 283px; position: static; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-negative: 0; flex-shrink: 0; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; padding-left: 0; padding-right: 16px; }
+  .itemview .filters.toggleVis { -webkit-transform: translateX(0); transform: translateX(0); } }
 
 .itemview .filters .filter { margin-bottom: 20px; }
 
@@ -332,7 +333,7 @@ svg { height: 24px; }
 
 .itemview .filters .filter ul li:hover .name { color: #111; }
 
-.itemview .items { margin: 0 auto; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; width: 416px; }
+.itemview .items { margin: 0 auto; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-line-pack: start; align-content: flex-start; -ms-flex-wrap: wrap; flex-wrap: wrap; width: 416px; }
 
 @media (min-width: 576px) { .itemview .items { width: 528px; } }
 

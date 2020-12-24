@@ -61,3 +61,7 @@ document.querySelectorAll('input[type=checkbox]').forEach((checkbox) => {
     getItemlist(checkedBox.flower, checkedBox.color, checkedBox.priceRange);
   });
 });
+
+const mobileFilterToggle = () => {
+  document.querySelector('.filters').classList.toggle('toggleVis');
+};

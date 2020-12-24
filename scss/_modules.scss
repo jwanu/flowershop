@@ -80,6 +80,7 @@
 @mixin itemFlex {
   margin: 0 auto;
   display: flex;
+  align-content: flex-start;
   flex-wrap: wrap;
   width: 416px;
   @include sm{ width: 528px };

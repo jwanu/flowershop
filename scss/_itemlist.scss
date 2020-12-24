@@ -63,6 +63,7 @@
       height: 100%;
       display: flex;
       align-items: center;
+      cursor: pointer;
       svg {
         height: 16px;
       }
@@ -83,18 +84,28 @@
   display: flex;
   margin-top: 24px;
   .filters {
-    flex-shrink: 0;
-    display: none;
-    visibility: hidden;
-    flex-direction: column;
-    margin-right: 16px;
-    width: 309px;
-    @include lg {
-      width: 283px;
+    position: absolute;
+    z-index: 10;
+    left: -100vw;
+    width: 100%;
+    padding: 0 16px;
+    background: #fff;
+    overflow: hidden;
+    transition: all .2s ease;
+    &.toggleVis {
+      transform: translateX(100vw);
     }
     @include lg {
+      width: 283px;
+      position: static;
       display: flex;
-      visibility: visible;
+      flex-shrink: 0;
+      flex-direction: column;
+      padding-left: 0;
+      padding-right: 16px;
+      &.toggleVis {
+        transform: translateX(0);
+      }
     }
     .filter {
       margin-bottom: 20px;
@@ -152,6 +163,7 @@
       }
     }
   }
+
   .items {
     @include itemFlex;
   }
