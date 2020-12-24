@@ -8,7 +8,6 @@ const connect = require('./schemas');
 const indexRouter = require('./routes');
 const itemlistsRouter = require('./routes/itemlists');
 const cartRouter = require('./routes/carts');
-
 const app = express();
 
 app.set('port', process.env.PORT || 80);
