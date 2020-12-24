@@ -11,7 +11,7 @@ const cartRouter = require('./routes/carts');
 
 const app = express();
 
-app.set('port', process.env.PORT || 1337);
+app.set('port', process.env.PORT || 80);
 app.set('view engine', 'html');
 nunjucks.configure('views', {
     express: app,
