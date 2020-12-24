@@ -11,7 +11,7 @@ const cartRouter = require('./routes/carts');
 
 const app = express();
 
-app.set('port', process.env.PORT || 80);
+app.set('port', process.env.PORT || 1337);
 app.set('view engine', 'html');
 nunjucks.configure('views', {
     express: app,
@@ -28,7 +28,6 @@ app.use(cookieParser());
 app.use('/itemlists', itemlistsRouter);
 app.use('/carts', cartRouter);
 app.use('/', indexRouter);
-
 
 app.use((req, res, next) => {
     const error = new Error(`${req.method} ${req.url} 라우터없음`);
